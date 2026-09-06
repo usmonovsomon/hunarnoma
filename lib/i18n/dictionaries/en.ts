@@ -303,21 +303,13 @@ const en: Dict = {
 
   questions: {
     q1: "I enjoy solving logic problems and puzzles.",
-    q2: "I like figuring out how numbers and data work.",
     q3: "I’m curious about how computers and machines work.",
-    q4: "I enjoy picking up new software and devices.",
     q5: "I like creating things: drawings, texts, music, ideas.",
-    q6: "It matters to me that my work looks good and feels original.",
     q7: "I find it easy to speak in public and explain things to others.",
-    q8: "I like negotiating and working in a team.",
     q9: "I enjoy helping people and taking care of them.",
-    q10: "I pick up on other people’s moods and needs easily.",
     q11: "One day I’d like to start my own business or project.",
-    q12: "I’m willing to take a risk for an interesting opportunity.",
     q13: "I’m curious about how the world works: biology, physics, chemistry.",
-    q14: "I like running experiments and testing hypotheses.",
     q15: "I’m curious about how companies and markets make money.",
-    q16: "I like working with laws, rules and fairness.",
   },
 };
 

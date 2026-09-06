@@ -16,7 +16,7 @@ export default function Nav({ locale }: { locale: Locale }) {
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-3">
         <Link href={href(locale)} className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 text-lg font-black text-white">R</span>
+          <img src="/logo-mark.png" alt="" className="h-9 w-9" width={128} height={128} />
           <span className="text-lg font-extrabold tracking-tight">
             Rohnamo<span className="text-brand-600">.</span>
           </span>

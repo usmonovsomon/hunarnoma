@@ -17,23 +17,21 @@ export interface TestQuestion {
   reverse?: boolean;
 }
 
+// One question per dimension — trimmed down from the original 16 (two per
+// dimension) because 16 was too many to sit through. Each of the 8
+// TestDimension values still gets exactly one question, so scoreTest's model
+// (which scores per-dimension, then rolls dimensions up into clusters) needs
+// no changes; each dimension just now rests on a single data point instead
+// of an average of two.
 export const testQuestions: TestQuestion[] = [
   { id: "q1", dimension: "analytical" },
-  { id: "q2", dimension: "analytical" },
   { id: "q3", dimension: "technical" },
-  { id: "q4", dimension: "technical" },
   { id: "q5", dimension: "creative" },
-  { id: "q6", dimension: "creative" },
   { id: "q7", dimension: "communication" },
-  { id: "q8", dimension: "communication" },
   { id: "q9", dimension: "people" },
-  { id: "q10", dimension: "people" },
   { id: "q11", dimension: "entrepreneurial" },
-  { id: "q12", dimension: "entrepreneurial" },
   { id: "q13", dimension: "science" },
-  { id: "q14", dimension: "science" },
   { id: "q15", dimension: "business" },
-  { id: "q16", dimension: "people", reverse: false },
 ];
 
 const DIMENSIONS: TestDimension[] = [
