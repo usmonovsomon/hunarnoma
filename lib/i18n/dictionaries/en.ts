@@ -4,6 +4,7 @@ import type { Dict } from "./ru";
 
 const en: Dict = {
   nav: {
+    professions: "Professions",
     specialties: "Programs",
     universities: "Universities",
     clusters: "Clusters",
@@ -111,6 +112,37 @@ const en: Dict = {
     unisCtaText:
       "Public and private universities in every region: programs, seats, tuition, language of study and contacts.",
     unisCtaButton: "Open universities",
+    professionsTitle: "Which profession should you start with?",
+    professionsLead: "What a specialist does, and which university programs lead to it.",
+    professionsCta: "All professions",
+  },
+
+  professionsPage: {
+    title: "Professions",
+    lead:
+      "What a specialist does, what skills it takes, and which programs at universities in Tajikistan lead to it.",
+    metaDescription:
+      "A catalog of professions: what a specialist does, what skills it takes, and which university programs in Tajikistan teach it.",
+    searchPlaceholder: "Search professions — e.g. “doctor”, “lawyer”, “developer”",
+    allFields: "All fields",
+    found: "Professions found:",
+    empty: "Nothing found. Try a different query or clear the field filter.",
+    editorialNote:
+      "Profession descriptions are editorial — a guideline for choosing. Data on programs, universities, seats and tuition comes from the official NTC intake plan.",
+  },
+
+  professionPage: {
+    fallbackTitle: "Profession",
+    metaDescription:
+      "{name}: what a specialist does, what skills it takes, and which university programs in Tajikistan teach it.",
+    whatTheyDo: "What they do",
+    skills: "Skills you need",
+    schoolSubjects: "Focus on these subjects at school",
+    pros: "Pros",
+    cons: "Challenges",
+    studyThisTitle: "Programs that lead to this profession",
+    studyThisHint: "Open a program to see every university that teaches it, seats and tuition.",
+    related: "Other professions in “{field}”",
   },
 
   specialtiesPage: {

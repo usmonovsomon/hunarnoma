@@ -5,6 +5,7 @@ import { getDict, href, type Locale } from "@/lib/i18n";
 export default function Nav({ locale }: { locale: Locale }) {
   const d = getDict(locale);
   const links = [
+    { href: href(locale, "/professions"), label: d.nav.professions },
     { href: href(locale, "/specialties"), label: d.nav.specialties },
     { href: href(locale, "/universities"), label: d.nav.universities },
     { href: `${href(locale)}#clusters`, label: d.nav.clusters },

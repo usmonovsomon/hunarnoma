@@ -2,14 +2,27 @@ import Link from "next/link";
 import { specialties, clusterSummaries, totals } from "@/lib/ntc";
 import { CLUSTER_COLOR } from "@/lib/ntc/content";
 import { getClusterMeta } from "@/lib/i18n/content";
+import { getProfession, specialtiesForProfession } from "@/lib/professions";
+import { getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, fmt, fmtNum, getDict, href } from "@/lib/i18n";
 import { SpecialtyCard, Stat, SourceNote } from "@/components/ntc";
+import { ProfessionCard } from "@/components/professions";
+
+const HOME_PROFESSION_SLUGS = [
+  "software-developer", "doctor", "lawyer", "economist",
+  "architect", "primary-teacher", "journalist", "manager",
+];
 
 export default function Home({ params }: { params: { locale: string } }) {
   const locale = asLocale(params.locale);
   const d = getDict(locale);
   const clusterMeta = getClusterMeta(locale);
   const popular = [...specialties].sort((a, b) => b.stats.universities - a.stats.universities).slice(0, 8);
+  const homeProfessions = HOME_PROFESSION_SLUGS
+    .map((slug) => getProfession(slug))
+    .filter((p): p is NonNullable<typeof p> => !!p)
+    .map((p) => ({ p, text: getProfessionText(locale, p.id) }))
+    .filter((x): x is { p: NonNullable<typeof x.p>; text: NonNullable<typeof x.text> } => !!x.text);
 
   const steps = [
     { n: "1", t: d.home.step1Title, text: fmt(d.home.step1Text, { count: fmtNum(locale, totals.specialties) }) },
@@ -56,6 +69,33 @@ export default function Home({ params }: { params: { locale: string } }) {
               <h3 className="mt-3 font-bold">{s.t}</h3>
               <p className="mt-1 text-sm text-ink-soft">{s.text}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Professions */}
+      <section className="container-page py-8">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-extrabold tracking-tight">{d.home.professionsTitle}</h2>
+            <p className="mt-1 text-ink-soft">{d.home.professionsLead}</p>
+          </div>
+          <Link href={href(locale, "/professions")} className="text-sm font-semibold text-brand-600 hover:underline">
+            {d.home.professionsCta}
+          </Link>
+        </div>
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {homeProfessions.map(({ p, text }) => (
+            <ProfessionCard
+              key={p.id}
+              locale={locale}
+              dict={d}
+              slug={p.slug}
+              fieldId={p.fieldId}
+              name={text.name}
+              tagline={text.tagline}
+              specialtyCount={specialtiesForProfession(p).length}
+            />
           ))}
         </div>
       </section>
