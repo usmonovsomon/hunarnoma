@@ -2,15 +2,18 @@ import Link from "next/link";
 import { specialties, clusterSummaries, totals } from "@/lib/ntc";
 import { CLUSTER_COLOR } from "@/lib/ntc/content";
 import { getClusterMeta } from "@/lib/i18n/content";
-import { getProfession, specialtiesForProfession } from "@/lib/professions";
+import { PROFESSIONS, getProfession, specialtiesForProfession } from "@/lib/professions";
 import { getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, fmt, fmtNum, getDict, href } from "@/lib/i18n";
 import { SpecialtyCard, Stat, SourceNote } from "@/components/ntc";
 import { ProfessionCard } from "@/components/professions";
 
+// One representative profession per field (it, engineering, science, agriculture,
+// medicine, business, law, education, media, arts), plus two extra for variety.
 const HOME_PROFESSION_SLUGS = [
-  "software-developer", "doctor", "lawyer", "economist",
-  "architect", "primary-teacher", "journalist", "manager",
+  "software-developer", "architect", "biologist", "agronomist",
+  "doctor", "economist", "lawyer", "primary-teacher",
+  "journalist", "fashion-designer", "psychologist", "police-officer",
 ];
 
 export default function Home({ params }: { params: { locale: string } }) {
@@ -25,7 +28,7 @@ export default function Home({ params }: { params: { locale: string } }) {
     .filter((x): x is { p: NonNullable<typeof x.p>; text: NonNullable<typeof x.text> } => !!x.text);
 
   const steps = [
-    { n: "1", t: d.home.step1Title, text: fmt(d.home.step1Text, { count: fmtNum(locale, totals.specialties) }) },
+    { n: "1", t: d.home.step1Title, text: fmt(d.home.step1Text, { count: fmtNum(locale, PROFESSIONS.length) }) },
     { n: "2", t: d.home.step2Title, text: d.home.step2Text },
     { n: "3", t: d.home.step3Title, text: d.home.step3Text },
   ];
@@ -48,32 +51,19 @@ export default function Home({ params }: { params: { locale: string } }) {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={href(locale, "/career-test")} className="btn-primary">{d.home.ctaTest}</Link>
-            <Link href={href(locale, "/specialties")} className="btn-ghost">{d.home.ctaCatalog}</Link>
+            <Link href={href(locale, "/professions")} className="btn-ghost">{d.home.ctaCatalog}</Link>
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <Stat value={fmtNum(locale, PROFESSIONS.length)} label={d.labels.professions} />
             <Stat value={fmtNum(locale, totals.universities)} label={d.labels.universities} />
             <Stat value={fmtNum(locale, totals.specialties)} label={d.labels.specialties} />
-            <Stat value={fmtNum(locale, totals.programs)} label={d.labels.programs} />
             <Stat value={fmtNum(locale, totals.seats)} label={d.labels.seatsFor} />
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="container-page py-8">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {steps.map((s) => (
-            <div key={s.n} className="card p-5">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 font-bold text-white">{s.n}</div>
-              <h3 className="mt-3 font-bold">{s.t}</h3>
-              <p className="mt-1 text-sm text-ink-soft">{s.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Professions */}
+      {/* Professions — the main entry point of the product */}
       <section className="container-page py-8">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -96,6 +86,19 @@ export default function Home({ params }: { params: { locale: string } }) {
               tagline={text.tagline}
               specialtyCount={specialtiesForProfession(p).length}
             />
+          ))}
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="container-page py-8">
+        <div className="grid gap-4 sm:grid-cols-3">
+          {steps.map((s) => (
+            <div key={s.n} className="card p-5">
+              <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 font-bold text-white">{s.n}</div>
+              <h3 className="mt-3 font-bold">{s.t}</h3>
+              <p className="mt-1 text-sm text-ink-soft">{s.text}</p>
+            </div>
           ))}
         </div>
       </section>

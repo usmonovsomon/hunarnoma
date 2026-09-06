@@ -44,6 +44,7 @@ const en: Dict = {
     privatePlural: "Private",
     seatsShort: "seats",
     perYearSomoni: "TJS",
+    professions: "professions",
   },
 
   forms: {
@@ -93,11 +94,11 @@ const en: Dict = {
     lead2:
       "in Tajikistan in one place. Find out what profession sits behind each program, where it is taught, what it costs and how many seats there are — and choose your future deliberately.",
     ctaTest: "Not sure what to become — take the test",
-    ctaCatalog: "Browse programs",
-    step1Title: "Find a program",
-    step1Text: "Through an interest-based test or a catalog of {count} programs grouped into 5 clusters.",
-    step2Title: "Understand the profession",
-    step2Text: "What you study, where you can work, entrance subjects, seats and tuition — all on one page.",
+    ctaCatalog: "Browse professions",
+    step1Title: "Find a profession",
+    step1Text: "Through an interest-based test or a catalog of {count} professions — from IT to medicine and law.",
+    step2Title: "See which programs lead to it",
+    step2Text: "What you'd study, what skills it takes, and which university programs lead to that profession.",
     step3Title: "Pick a university",
     step3Text: "Compare universities that offer the program: city, language, study format, funded seats and price.",
     clustersTitle: "5 program clusters",
