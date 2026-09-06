@@ -45,6 +45,7 @@ const en: Dict = {
     seatsShort: "seats",
     perYearSomoni: "TJS",
     professions: "professions",
+    international: "International",
   },
 
   forms: {
@@ -89,10 +90,10 @@ const en: Dict = {
     titleLead: "From “",
     titleAccent: "I don’t know what to become",
     titleTail: "” to “this is where I’m applying.”",
-    lead1: "Rohnamo brings together",
-    leadBold: "official data on every university and program",
+    lead1: "Rohnamo helps you understand",
+    leadBold: "who you could become",
     lead2:
-      "in Tajikistan in one place. Find out what profession sits behind each program, where it is taught, what it costs and how many seats there are — and choose your future deliberately.",
+      "— what skills it takes and which programs lead there. Once you get to choosing a university, we show the official NTC intake data: seats, tuition and languages of study.",
     ctaTest: "Not sure what to become — take the test",
     ctaCatalog: "Browse professions",
     step1Title: "Find a profession",
@@ -116,6 +117,11 @@ const en: Dict = {
     professionsTitle: "Which profession should you start with?",
     professionsLead: "What a specialist does, and which university programs lead to it.",
     professionsCta: "All professions",
+    graphTitle: "How it works",
+    graphLead: "Every profession connects to study programs, and every program connects to the universities that teach it.",
+    graphCaption: "This is just one example — the same connection exists for all {count} professions.",
+    officialDataTitle: "Next — the verified data",
+    officialDataLead: "5 program clusters and every university in Tajikistan, from the official NTC 2026–2027 intake plan.",
   },
 
   professionsPage: {
@@ -143,6 +149,8 @@ const en: Dict = {
     cons: "Challenges",
     studyThisTitle: "Programs that lead to this profession",
     studyThisHint: "Open a program to see every university that teaches it, seats and tuition.",
+    internationalNote:
+      "This is an international profession: the NTC intake plan has no dedicated program for it — it's in demand worldwide, often remotely. Browse the program catalog for related fields if you'd like to start by studying in Tajikistan.",
     related: "Other professions in “{field}”",
   },
 

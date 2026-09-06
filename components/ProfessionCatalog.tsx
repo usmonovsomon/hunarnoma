@@ -12,6 +12,7 @@ export interface ProfessionItem {
   name: string;
   tagline: string;
   specialtyCount: number;
+  international?: boolean;
 }
 
 /** Minimal field info the filter chips need — no content bundle import client-side. */
@@ -86,6 +87,7 @@ export default function ProfessionCatalog({
             name={p.name}
             tagline={p.tagline}
             specialtyCount={p.specialtyCount}
+            international={p.international}
           />
         ))}
       </div>

@@ -27,6 +27,7 @@ export default function ProfessionsPage({ params }: { params: { locale: string }
       name: text?.name ?? p.id,
       tagline: text?.tagline ?? "",
       specialtyCount: specialtiesForProfession(p).length,
+      international: p.international,
     };
   });
 

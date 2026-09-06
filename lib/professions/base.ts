@@ -67,8 +67,19 @@ export interface ProfessionBase {
   id: string;
   slug: string;
   fieldId: ProfessionFieldId;
-  /** Real NTC specialty codes (lib/ntc/data.json) that lead to this profession. */
+  /**
+   * Real NTC specialty codes (lib/ntc/data.json) that lead to this profession.
+   * Empty for `international` professions — the Tajik admission plan has no
+   * matching program for them, so the profession page skips the "where it's
+   * taught" section instead of forcing a fake local match.
+   */
   specialtyCodes: string[];
+  /**
+   * True for professions built around studying/working abroad or fully
+   * remote/global roles, rather than a specific NTC-listed program. Shown as
+   * an "international" badge; never paired with a fabricated specialty link.
+   */
+  international?: boolean;
 }
 
 export const PROFESSIONS: ProfessionBase[] = [
@@ -175,6 +186,18 @@ export const PROFESSIONS: ProfessionBase[] = [
   { id: "furniture-designer", slug: "furniture-designer", fieldId: "arts", specialtyCodes: ["11901010103"] },
   { id: "museum-culturologist", slug: "museum-culturologist", fieldId: "arts", specialtyCodes: ["1210401", "121040101", "123011203"] },
   { id: "librarian", slug: "librarian", fieldId: "arts", specialtyCodes: ["123011101", "123011103", "123011104"] },
+
+  // Международные профессии — глобальные роли без привязки к плану приёма НЦТ
+  { id: "product-manager", slug: "product-manager", fieldId: "business", specialtyCodes: [], international: true },
+  { id: "management-consultant", slug: "management-consultant", fieldId: "business", specialtyCodes: [], international: true },
+  { id: "investment-analyst", slug: "investment-analyst", fieldId: "business", specialtyCodes: [], international: true },
+  { id: "actuary", slug: "actuary", fieldId: "business", specialtyCodes: [], international: true },
+  { id: "devops-engineer", slug: "devops-engineer", fieldId: "it", specialtyCodes: [], international: true },
+  { id: "cloud-engineer", slug: "cloud-engineer", fieldId: "it", specialtyCodes: [], international: true },
+  { id: "ux-researcher", slug: "ux-researcher", fieldId: "it", specialtyCodes: [], international: true },
+  { id: "game-developer", slug: "game-developer", fieldId: "it", specialtyCodes: [], international: true },
+  { id: "remote-support-specialist", slug: "remote-support-specialist", fieldId: "it", specialtyCodes: [], international: true },
+  { id: "international-ngo-specialist", slug: "international-ngo-specialist", fieldId: "law", specialtyCodes: [], international: true },
 ];
 
 /** Per-locale text for one profession — the curated "what is this job" copy. */

@@ -7,6 +7,7 @@ import { getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, fmt, fmtNum, getDict, href } from "@/lib/i18n";
 import { SpecialtyCard, Stat, SourceNote } from "@/components/ntc";
 import { ProfessionCard } from "@/components/professions";
+import { ProfessionGraph } from "@/components/ProfessionGraph";
 
 // One representative profession per field (it, engineering, science, agriculture,
 // medicine, business, law, education, media, arts), plus two extra for variety.
@@ -85,6 +86,7 @@ export default function Home({ params }: { params: { locale: string } }) {
               name={text.name}
               tagline={text.tagline}
               specialtyCount={specialtiesForProfession(p).length}
+              international={p.international}
             />
           ))}
         </div>
@@ -102,6 +104,17 @@ export default function Home({ params }: { params: { locale: string } }) {
           ))}
         </div>
       </section>
+
+      {/* Profession → specialty → university, illustrated with one real example */}
+      <ProfessionGraph locale={locale} professionCount={PROFESSIONS.length} />
+
+      {/* Transition into the NTC-sourced part of the site — professions come first, this is the supporting detail */}
+      <div className="container-page pt-8">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
+          <h2 className="font-bold text-ink">{d.home.officialDataTitle}</h2>
+          <p className="mt-1 text-sm text-ink-soft">{d.home.officialDataLead}</p>
+        </div>
+      </div>
 
       {/* Clusters */}
       <section id="clusters" className="container-page scroll-mt-20 py-8">

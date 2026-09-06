@@ -24,6 +24,14 @@ export function FieldPill({
   );
 }
 
+export function InternationalBadge({ dict, className = "" }: { dict: Dict; className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-ink-soft ${className}`}>
+      🌍 {dict.labels.international}
+    </span>
+  );
+}
+
 export function ProfessionCard({
   locale,
   dict,
@@ -32,6 +40,7 @@ export function ProfessionCard({
   name,
   tagline,
   specialtyCount,
+  international = false,
 }: {
   locale: Locale;
   dict: Dict;
@@ -40,6 +49,7 @@ export function ProfessionCard({
   name: string;
   tagline: string;
   specialtyCount: number;
+  international?: boolean;
 }) {
   const field = getProfessionFieldMeta(locale)[fieldId];
   return (
@@ -51,7 +61,11 @@ export function ProfessionCard({
       <div className="mt-1.5 font-bold leading-snug text-ink group-hover:text-brand-700">{name}</div>
       <div className="mt-1 line-clamp-2 text-sm text-ink-soft">{tagline}</div>
       <div className="mt-auto pt-3 text-xs text-ink-muted">
-        🎓 {specialtyCount} {plural(locale, specialtyCount, dict.units.specialty)}
+        {international ? (
+          <InternationalBadge dict={dict} />
+        ) : (
+          <span>🎓 {specialtyCount} {plural(locale, specialtyCount, dict.units.specialty)}</span>
+        )}
       </div>
     </Link>
   );

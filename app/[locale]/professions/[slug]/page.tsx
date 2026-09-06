@@ -5,7 +5,7 @@ import { PROFESSIONS, getProfession, professionsInField, specialtiesForProfessio
 import { getProfessionField, getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, fmt, getDict, href, type Locale } from "@/lib/i18n";
 import { SpecialtyCard } from "@/components/ntc";
-import { FieldPill } from "@/components/professions";
+import { FieldPill, InternationalBadge } from "@/components/professions";
 
 export function generateStaticParams() {
   return PROFESSIONS.map((p) => ({ slug: p.slug }));
@@ -61,7 +61,10 @@ export default function ProfessionPage({ params }: { params: { locale: string; s
       </nav>
 
       <header>
-        <FieldPill locale={locale} id={p.fieldId} />
+        <div className="flex flex-wrap items-center gap-2">
+          <FieldPill locale={locale} id={p.fieldId} />
+          {p.international && <InternationalBadge dict={d} />}
+        </div>
         <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{text.name}</h1>
         <p className="mt-2 text-lg text-ink-soft">{text.tagline}</p>
         <p className="mt-4 max-w-3xl text-ink-soft">{text.summary}</p>
@@ -94,7 +97,7 @@ export default function ProfessionPage({ params }: { params: { locale: string; s
         </section>
       </div>
 
-      {specialties.length > 0 && (
+      {specialties.length > 0 ? (
         <section className="mt-10">
           <h2 className="text-xl font-bold">{d.professionPage.studyThisTitle}</h2>
           <p className="mt-1 text-sm text-ink-muted">{d.professionPage.studyThisHint}</p>
@@ -102,7 +105,11 @@ export default function ProfessionPage({ params }: { params: { locale: string; s
             {specialties.map((s) => <SpecialtyCard key={s.code} locale={locale} s={s} />)}
           </div>
         </section>
-      )}
+      ) : p.international ? (
+        <p className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-ink-soft">
+          {d.professionPage.internationalNote}
+        </p>
+      ) : null}
 
       {related.length > 0 && (
         <section className="mt-10">
