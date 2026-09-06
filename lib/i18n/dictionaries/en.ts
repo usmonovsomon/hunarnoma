@@ -302,16 +302,16 @@ const en: Dict = {
   },
 
   questions: {
-    q1: "I notice patterns and logical connections easily, where others just see a pile of unrelated facts.",
-    q2: "I'm curious to take something apart to understand how it's built and why it stopped working.",
-    q3: "Ready-made templates feel too tight for me — I keep coming up with my own ideas, images, or stories.",
-    q4: "I can explain a complicated idea so that even someone with no background in it gets it.",
-    q5: "I can tell when someone is having a hard time, and I want to help — even if they haven't asked.",
-    q6: "I'm willing to take a risk and be responsible for my own venture, even without a guaranteed outcome.",
-    q7: "I'm curious to dig into how living things, substances, or nature actually work.",
-    q8: "I'm drawn to how companies make money and why one business takes off while another fails.",
-    q9: "I connect easily with people I've just met, and I can talk them into seeing things my way.",
-    q10: "I like testing a hunch through an experiment or observation, rather than just taking someone's word for it.",
+    q1: "I enjoy solving puzzles and problems.",
+    q2: "I'm curious how machines and devices work.",
+    q3: "I like coming up with new things.",
+    q4: "I find it easy to explain what I know to others.",
+    q5: "I enjoy helping people.",
+    q6: "I'd like to start my own business one day.",
+    q7: "I'm curious how nature works.",
+    q8: "I'm curious how people make money.",
+    q9: "I make new friends easily.",
+    q10: "I like checking things myself, not just taking them on faith.",
   },
 };
 
