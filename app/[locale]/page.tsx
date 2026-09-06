@@ -5,9 +5,9 @@ import { getClusterMeta } from "@/lib/i18n/content";
 import { PROFESSIONS, getProfession, specialtiesForProfession } from "@/lib/professions";
 import { getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, fmt, fmtNum, getDict, href } from "@/lib/i18n";
-import { SpecialtyCard, Stat, SourceNote } from "@/components/ntc";
+import { SpecialtyCard, SourceNote } from "@/components/ntc";
 import { ProfessionCard } from "@/components/professions";
-import { ProfessionGraph } from "@/components/ProfessionGraph";
+import { ProfessionsByFieldChart } from "@/components/ProfessionsByFieldChart";
 
 // One representative profession per field (it, engineering, science, agriculture,
 // medicine, business, law, education, media, arts), plus two extra for variety.
@@ -55,12 +55,14 @@ export default function Home({ params }: { params: { locale: string } }) {
             <Link href={href(locale, "/professions")} className="btn-ghost">{d.home.ctaCatalog}</Link>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {/* Stat row — commented out for now, felt like it didn't fit here; bring back once we
+              know what this section should actually lead with. */}
+          {/* <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <Stat value={fmtNum(locale, PROFESSIONS.length)} label={d.labels.professions} />
             <Stat value={fmtNum(locale, totals.universities)} label={d.labels.universities} />
             <Stat value={fmtNum(locale, totals.specialties)} label={d.labels.specialties} />
             <Stat value={fmtNum(locale, totals.seats)} label={d.labels.seatsFor} />
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -105,8 +107,8 @@ export default function Home({ params }: { params: { locale: string } }) {
         </div>
       </section>
 
-      {/* Profession → specialty → university, illustrated with one real example */}
-      <ProfessionGraph locale={locale} professionCount={PROFESSIONS.length} />
+      {/* How many professions live in each field */}
+      <ProfessionsByFieldChart locale={locale} />
 
       {/* Transition into the NTC-sourced part of the site — professions come first, this is the supporting detail */}
       <div className="container-page pt-8">
