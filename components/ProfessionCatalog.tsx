@@ -30,14 +30,16 @@ export default function ProfessionCatalog({
   dict,
   fields,
   items,
+  initialField = "",
 }: {
   locale: Locale;
   dict: Dict;
   fields: FieldChip[];
   items: ProfessionItem[];
+  initialField?: ProfessionFieldId | "";
 }) {
   const [q, setQ] = useState("");
-  const [fieldId, setFieldId] = useState<ProfessionFieldId | "">("");
+  const [fieldId, setFieldId] = useState<ProfessionFieldId | "">(initialField);
 
   const filtered = useMemo(() => {
     const f = fold(q.trim());

@@ -224,10 +224,10 @@ const en: Dict = {
   test: {
     metaTitle: "Career orientation test",
     metaDescription:
-      "A short interest test: it suggests which program clusters are worth considering, and explains why.",
+      "A short interest test: it suggests which profession fields are worth considering, and explains why.",
     question: "Question {n} of {total}",
     back: "← Back",
-    disclaimer: "The test is not a diagnosis. It points to programs worth a closer look.",
+    disclaimer: "The test is not a diagnosis. It points to professions worth a closer look.",
     options: [
       "Not me at all",
       "Rather not",
@@ -240,16 +240,16 @@ const en: Dict = {
   result: {
     metaTitle: "Test result",
     badge: "Your result",
-    title: "These clusters are worth a closer look",
-    lead: "This isn’t a final choice — it’s a starting point. Explore the programs below and see where they are taught.",
+    title: "These fields are worth a closer look",
+    lead: "This isn’t a final choice — it’s a starting point. Explore the professions below and see which programs lead to them.",
     bestMatch: "Best match",
     matchLabel: "match",
     whyLabel: "Why:",
     whyText: "you lean towards {reasons}.",
     reasonsJoin: " and ",
-    clusterLink: "All programs in this cluster →",
+    fieldLink: "All professions in this field →",
     profileTitle: "Your profile",
-    seeAllSpecialties: "Browse all programs →",
+    seeAllProfessions: "Browse all professions →",
     retake: "Retake the test",
     disclaimer:
       "The test is not a diagnosis and does not replace counselling. It only suggests where to start your search.",
@@ -302,16 +302,16 @@ const en: Dict = {
   },
 
   questions: {
-    q1: "I enjoy solving logic problems and puzzles.",
-    q2: "I like figuring out how numbers and data work.",
-    q3: "I’m curious about how computers and machines work.",
-    q5: "I like creating things: drawings, texts, music, ideas.",
-    q7: "I find it easy to speak in public and explain things to others.",
-    q8: "I like negotiating and working in a team.",
-    q9: "I enjoy helping people and taking care of them.",
-    q11: "One day I’d like to start my own business or project.",
-    q13: "I’m curious about how the world works: biology, physics, chemistry.",
-    q15: "I’m curious about how companies and markets make money.",
+    q1: "I notice patterns and logical connections easily, where others just see a pile of unrelated facts.",
+    q2: "I'm curious to take something apart to understand how it's built and why it stopped working.",
+    q3: "Ready-made templates feel too tight for me — I keep coming up with my own ideas, images, or stories.",
+    q4: "I can explain a complicated idea so that even someone with no background in it gets it.",
+    q5: "I can tell when someone is having a hard time, and I want to help — even if they haven't asked.",
+    q6: "I'm willing to take a risk and be responsible for my own venture, even without a guaranteed outcome.",
+    q7: "I'm curious to dig into how living things, substances, or nature actually work.",
+    q8: "I'm drawn to how companies make money and why one business takes off while another fails.",
+    q9: "I connect easily with people I've just met, and I can talk them into seeing things my way.",
+    q10: "I like testing a hunch through an experiment or observation, rather than just taking someone's word for it.",
   },
 };
 

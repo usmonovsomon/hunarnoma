@@ -1,10 +1,12 @@
 // Explainable career test (no ML). Maps Likert answers → 8 dimensions →
-// the 5 NTC clusters. Self-contained: no dataset import, so it stays light
-// in the client bundle. Recommendations are always explainable ("почему").
+// the 10 profession fields (lib/professions). Self-contained: no dataset
+// import, so it stays light in the client bundle. Recommendations are always
+// explainable ("почему").
 //
 // Question wording and dimension labels are localised — they live under
 // `questions` / `dimensions` in lib/i18n/dictionaries/*. This file keeps only
 // the question ids and scoring model, which are language-independent.
+import { PROFESSION_FIELD_IDS, type ProfessionFieldId } from "@/lib/professions/base";
 
 export type TestDimension =
   | "analytical" | "technical" | "creative" | "communication"
@@ -17,25 +19,24 @@ export interface TestQuestion {
   reverse?: boolean;
 }
 
-// One question per dimension (trimmed from the original 16), plus a second
-// question on "analytical" and "communication" — the two dimensions
-// CLUSTER_AFFINITY below leans on most (analytical feeds 4 of 5 clusters,
-// communication feeds 3), so a single noisy answer there does the most
-// damage to which cluster comes out on top. Averaging two answers instead of
-// one measures those specifically more precisely; the other six dimensions
-// stay at one question each. scoreTest needs no changes for this — it already
-// averages per-dimension over however many questions feed it.
+// One question per dimension, plus a second question on "science" and
+// "communication" — the two dimensions FIELD_AFFINITY below leans on most
+// (science feeds 4 of 10 fields, communication feeds 4), so a single noisy
+// answer there does the most damage to which field comes out on top.
+// Questions are written as concrete behaviour ("what I actually do / notice"),
+// not abstract trait labels — easier to answer honestly and it separates
+// fields better than a generic "I like X" statement.
 export const testQuestions: TestQuestion[] = [
   { id: "q1", dimension: "analytical" },
-  { id: "q2", dimension: "analytical" },
-  { id: "q3", dimension: "technical" },
-  { id: "q5", dimension: "creative" },
-  { id: "q7", dimension: "communication" },
-  { id: "q8", dimension: "communication" },
-  { id: "q9", dimension: "people" },
-  { id: "q11", dimension: "entrepreneurial" },
-  { id: "q13", dimension: "science" },
-  { id: "q15", dimension: "business" },
+  { id: "q2", dimension: "technical" },
+  { id: "q3", dimension: "creative" },
+  { id: "q4", dimension: "communication" },
+  { id: "q5", dimension: "people" },
+  { id: "q6", dimension: "entrepreneurial" },
+  { id: "q7", dimension: "science" },
+  { id: "q8", dimension: "business" },
+  { id: "q9", dimension: "communication" },
+  { id: "q10", dimension: "science" },
 ];
 
 const DIMENSIONS: TestDimension[] = [
@@ -43,19 +44,26 @@ const DIMENSIONS: TestDimension[] = [
   "people", "entrepreneurial", "science", "business",
 ];
 
-// how much each cluster relies on each dimension
-const CLUSTER_AFFINITY: Record<number, Partial<Record<TestDimension, number>>> = {
-  1: { technical: 3, analytical: 3, science: 2 },                       // естеств. и технический
-  2: { business: 3, analytical: 2, entrepreneurial: 2, communication: 1 }, // экономика и география
-  3: { creative: 3, communication: 3, people: 1 },                     // филология, педагогика, искусство
-  4: { communication: 2, analytical: 2, people: 2, business: 1 },      // обществоведение и право
-  5: { science: 3, people: 2, analytical: 1 },                         // медицина, биология, спорт
+// How much each profession field leans on each dimension. A heuristic,
+// explainable weighting (same spirit as the old cluster-affinity table it
+// replaces) — not a validated psychometric model.
+const FIELD_AFFINITY: Record<ProfessionFieldId, Partial<Record<TestDimension, number>>> = {
+  it: { technical: 3, analytical: 3, creative: 1 },
+  engineering: { technical: 3, analytical: 2, science: 1 },
+  science: { science: 3, analytical: 2 },
+  medicine: { science: 3, people: 2 },
+  agriculture: { science: 2, technical: 2 },
+  business: { business: 3, analytical: 2, entrepreneurial: 2 },
+  law: { communication: 2, analytical: 2, people: 1 },
+  education: { communication: 2, people: 3 },
+  media: { creative: 2, communication: 3 },
+  arts: { creative: 3, communication: 1 },
 };
 
 export interface TestResult {
   scores: Record<TestDimension, number>; // 0..100
   /** `reasons` are dimension keys — the caller localises them. */
-  topClusters: { clusterId: number; score: number; reasons: TestDimension[] }[];
+  topFields: { fieldId: ProfessionFieldId; score: number; reasons: TestDimension[] }[];
 }
 
 export function scoreTest(answers: Record<string, number>): TestResult {
@@ -72,8 +80,9 @@ export function scoreTest(answers: Record<string, number>): TestResult {
   const scores = {} as Record<TestDimension, number>;
   for (const d of DIMENSIONS) scores[d] = Math.round((raw[d] / (counts[d] * 5 || 1)) * 100);
 
-  const topClusters = Object.entries(CLUSTER_AFFINITY)
-    .map(([id, aff]) => {
+  const topFields = PROFESSION_FIELD_IDS
+    .map((fieldId) => {
+      const aff = FIELD_AFFINITY[fieldId];
       let s = 0, wsum = 0;
       for (const [dim, w] of Object.entries(aff)) { s += (scores[dim as TestDimension] / 100) * w!; wsum += w!; }
       const reasons = Object.entries(aff)
@@ -81,9 +90,9 @@ export function scoreTest(answers: Record<string, number>): TestResult {
         .slice(0, 2)
         .filter(([d]) => scores[d as TestDimension] >= 45)
         .map(([d]) => d as TestDimension);
-      return { clusterId: Number(id), score: Math.round((s / (wsum || 1)) * 100), reasons };
+      return { fieldId, score: Math.round((s / (wsum || 1)) * 100), reasons };
     })
     .sort((a, b) => b.score - a.score);
 
-  return { scores, topClusters };
+  return { scores, topFields };
 }

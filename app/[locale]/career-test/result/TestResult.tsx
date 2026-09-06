@@ -2,21 +2,30 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { scoreTest, type TestResult, type TestDimension } from "@/lib/test";
-import { CLUSTER_COLOR, type ClusterMeta } from "@/lib/ntc/content";
+import { PROFESSION_FIELD_COLOR } from "@/lib/professions/base";
+import type { ProfessionFieldMeta } from "@/lib/i18n/professions";
 import { fmt, href, type Dict, type Locale } from "@/lib/i18n";
 
+export interface FieldExampleProfession {
+  slug: string;
+  name: string;
+}
+
 /**
- * Cluster metadata is passed in from the server component so this page does not
- * pull the dataset or the content bundles into the client bundle.
+ * Field metadata and example professions are passed in from the server
+ * component so this page does not pull the professions content bundle into
+ * the client bundle.
  */
 export default function TestResultView({
   locale,
   dict,
-  clusters,
+  fields,
+  professionsByField,
 }: {
   locale: Locale;
   dict: Dict;
-  clusters: Record<number, ClusterMeta>;
+  fields: Record<string, ProfessionFieldMeta>;
+  professionsByField: Record<string, FieldExampleProfession[]>;
 }) {
   const [result, setResult] = useState<TestResult | null>(null);
 
@@ -35,7 +44,7 @@ export default function TestResultView({
   }
 
   const dims = (Object.entries(result.scores) as [TestDimension, number][]).sort((a, b) => b[1] - a[1]);
-  const top = result.topClusters.slice(0, 3);
+  const top = result.topFields.slice(0, 3);
 
   return (
     <div className="container-page max-w-4xl py-12">
@@ -44,13 +53,14 @@ export default function TestResultView({
       <p className="mt-2 text-ink-muted">{dict.result.lead}</p>
 
       <div className="mt-8 space-y-4">
-        {top.map((c, i) => {
-          const m = clusters[c.clusterId];
+        {top.map((f, i) => {
+          const m = fields[f.fieldId];
           if (!m) return null;
-          const col = CLUSTER_COLOR[m.color];
-          const reasons = c.reasons.map((r) => dict.dimensions[r].toLowerCase());
+          const col = PROFESSION_FIELD_COLOR[m.color];
+          const reasons = f.reasons.map((r) => dict.dimensions[r].toLowerCase());
+          const examples = professionsByField[f.fieldId] ?? [];
           return (
-            <div key={c.clusterId} className={`card p-5 ring-1 ring-inset ${col.ring}`}>
+            <div key={f.fieldId} className={`card p-5 ring-1 ring-inset ${col.ring}`}>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">{m.emoji}</span>
@@ -67,7 +77,7 @@ export default function TestResultView({
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className={`text-2xl font-extrabold ${col.text}`}>{c.score}%</div>
+                  <div className={`text-2xl font-extrabold ${col.text}`}>{f.score}%</div>
                   <div className="text-[11px] text-ink-muted">{dict.result.matchLabel}</div>
                 </div>
               </div>
@@ -80,15 +90,15 @@ export default function TestResultView({
               )}
 
               <div className="mt-3 flex flex-wrap gap-2">
-                {m.exampleSpecialties.map((s) => (
-                  <Link key={s.code} href={href(locale, `/specialties/${s.code}`)} className="chip">{s.name}</Link>
+                {examples.map((p) => (
+                  <Link key={p.slug} href={href(locale, `/professions/${p.slug}`)} className="chip">{p.name}</Link>
                 ))}
               </div>
               <Link
-                href={href(locale, `/clusters/${c.clusterId}`)}
+                href={href(locale, `/professions?field=${f.fieldId}`)}
                 className="mt-4 inline-flex text-sm font-semibold text-brand-600 hover:underline"
               >
-                {dict.result.clusterLink}
+                {dict.result.fieldLink}
               </Link>
             </div>
           );
@@ -113,7 +123,7 @@ export default function TestResultView({
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3">
-        <Link href={href(locale, "/specialties")} className="btn-primary">{dict.result.seeAllSpecialties}</Link>
+        <Link href={href(locale, "/professions")} className="btn-primary">{dict.result.seeAllProfessions}</Link>
         <Link href={href(locale, "/career-test")} className="btn-ghost">{dict.result.retake}</Link>
       </div>
       <p className="mt-6 text-xs text-ink-muted">{dict.result.disclaimer}</p>

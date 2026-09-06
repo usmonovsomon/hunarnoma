@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { PROFESSIONS, PROFESSION_FIELD_IDS, specialtiesForProfession } from "@/lib/professions";
+import { PROFESSIONS, PROFESSION_FIELD_IDS, specialtiesForProfession, type ProfessionFieldId } from "@/lib/professions";
 import { getProfessionFieldMeta, getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, getDict, LOCALES } from "@/lib/i18n";
 import ProfessionCatalog, { type FieldChip, type ProfessionItem } from "@/components/ProfessionCatalog";
+
+const isFieldId = (x: unknown): x is ProfessionFieldId =>
+  typeof x === "string" && (PROFESSION_FIELD_IDS as readonly string[]).includes(x);
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -13,10 +16,17 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   return { title: d.professionsPage.title, description: d.professionsPage.metaDescription };
 }
 
-export default function ProfessionsPage({ params }: { params: { locale: string } }) {
+export default function ProfessionsPage({
+  params,
+  searchParams,
+}: {
+  params: { locale: string };
+  searchParams: { field?: string };
+}) {
   const locale = asLocale(params.locale);
   const d = getDict(locale);
   const fieldMeta = getProfessionFieldMeta(locale);
+  const initialField = isFieldId(searchParams.field) ? searchParams.field : "";
 
   const items: ProfessionItem[] = PROFESSIONS.map((p) => {
     const text = getProfessionText(locale, p.id);
@@ -42,7 +52,7 @@ export default function ProfessionsPage({ params }: { params: { locale: string }
         <p className="mt-3 text-ink-soft">{d.professionsPage.lead}</p>
       </header>
       <div className="mt-6">
-        <ProfessionCatalog locale={locale} dict={d} fields={fields} items={items} />
+        <ProfessionCatalog locale={locale} dict={d} fields={fields} items={items} initialField={initialField} />
       </div>
       <p className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-ink-muted">
         {d.professionsPage.editorialNote}
