@@ -303,9 +303,11 @@ const en: Dict = {
 
   questions: {
     q1: "I enjoy solving logic problems and puzzles.",
+    q2: "I like figuring out how numbers and data work.",
     q3: "I’m curious about how computers and machines work.",
     q5: "I like creating things: drawings, texts, music, ideas.",
     q7: "I find it easy to speak in public and explain things to others.",
+    q8: "I like negotiating and working in a team.",
     q9: "I enjoy helping people and taking care of them.",
     q11: "One day I’d like to start my own business or project.",
     q13: "I’m curious about how the world works: biology, physics, chemistry.",

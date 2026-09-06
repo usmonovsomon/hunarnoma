@@ -17,17 +17,21 @@ export interface TestQuestion {
   reverse?: boolean;
 }
 
-// One question per dimension — trimmed down from the original 16 (two per
-// dimension) because 16 was too many to sit through. Each of the 8
-// TestDimension values still gets exactly one question, so scoreTest's model
-// (which scores per-dimension, then rolls dimensions up into clusters) needs
-// no changes; each dimension just now rests on a single data point instead
-// of an average of two.
+// One question per dimension (trimmed from the original 16), plus a second
+// question on "analytical" and "communication" — the two dimensions
+// CLUSTER_AFFINITY below leans on most (analytical feeds 4 of 5 clusters,
+// communication feeds 3), so a single noisy answer there does the most
+// damage to which cluster comes out on top. Averaging two answers instead of
+// one measures those specifically more precisely; the other six dimensions
+// stay at one question each. scoreTest needs no changes for this — it already
+// averages per-dimension over however many questions feed it.
 export const testQuestions: TestQuestion[] = [
   { id: "q1", dimension: "analytical" },
+  { id: "q2", dimension: "analytical" },
   { id: "q3", dimension: "technical" },
   { id: "q5", dimension: "creative" },
   { id: "q7", dimension: "communication" },
+  { id: "q8", dimension: "communication" },
   { id: "q9", dimension: "people" },
   { id: "q11", dimension: "entrepreneurial" },
   { id: "q13", dimension: "science" },
