@@ -149,6 +149,7 @@ const ru = {
     whatTheyDo: "Чем занимается",
     skills: "Какие навыки нужны",
     schoolSubjects: "На что налегать в школе",
+    workplaces: "Где работают",
     pros: "Плюсы",
     cons: "Сложности",
     studyThisTitle: "Какие направления ведут к этой профессии",

@@ -145,6 +145,7 @@ const en: Dict = {
     whatTheyDo: "What they do",
     skills: "Skills you need",
     schoolSubjects: "Focus on these subjects at school",
+    workplaces: "Where they work",
     pros: "Pros",
     cons: "Challenges",
     studyThisTitle: "Programs that lead to this profession",

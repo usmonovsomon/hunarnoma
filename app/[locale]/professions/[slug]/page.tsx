@@ -82,6 +82,10 @@ export default function ProfessionPage({ params }: { params: { locale: string; s
         </div>
       </section>
 
+      <div className="mt-4">
+        <List title={d.professionPage.workplaces} items={text.workplaces} />
+      </div>
+
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <section className="rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5">
           <h2 className="text-sm font-bold text-emerald-800">{d.professionPage.pros}</h2>

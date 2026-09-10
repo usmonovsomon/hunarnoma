@@ -210,6 +210,14 @@ export interface ProfessionText {
   schoolSubjects: string[];
   pros: string[];
   cons: string[];
+  /**
+   * Concrete, real-world places/employers where this profession works in
+   * Tajikistan (or internationally, for `international` professions) — e.g.
+   * "IT-компании и аутсорс-студии", "Республиканская больница", specific
+   * ministries, ranges of companies, etc. Distinct from `pros`/`cons`: this
+   * answers "where do I actually end up working", not "is the job good".
+   */
+  workplaces: string[];
 }
 
 export interface ProfessionFieldText {
