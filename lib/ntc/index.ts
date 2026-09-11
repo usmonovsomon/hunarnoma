@@ -1,4 +1,4 @@
-// Rohnamo data layer — real NTC 2026 admission-plan data.
+// HunarNoma data layer — real NTC 2026 admission-plan data.
 // Source: Национальный центр тестирования при Президенте РТ (ntc.tj),
 // план приёма 2026–2027. Parsed from the official cluster PDFs.
 import raw from "./data.json";

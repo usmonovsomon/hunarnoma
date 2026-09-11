@@ -8,7 +8,7 @@ export default function Footer({ locale }: { locale: Locale }) {
     <footer className="mt-20 border-t border-slate-200 bg-white">
       <div className="container-page grid gap-8 py-12 md:grid-cols-4">
         <div>
-          <div className="text-lg font-extrabold">Rohnamo<span className="text-brand-600">.</span></div>
+          <div className="text-lg font-extrabold">HunarNoma<span className="text-brand-600">.</span></div>
           <p className="mt-2 text-sm text-ink-muted">{d.footer.tagline}</p>
         </div>
         <div className="text-sm">

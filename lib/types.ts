@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Rohnamo domain model
+// HunarNoma domain model
 // Encodes the core entity graph:
 //   ProfessionalField → Profession → EducationField → Program → University
 // with Skills / Subjects / CareerPaths / Admission data hanging off them.

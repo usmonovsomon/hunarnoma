@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { DEFAULT_LOCALE, LOCALES, isLocale, matchLocale } from "@/lib/i18n/config";
 
-const LOCALE_COOKIE = "rohnamo_locale";
+const LOCALE_COOKIE = "hunarnoma_locale";
 
 /**
  * Every page lives under /<locale>/…, so a request without a locale segment is

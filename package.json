@@ -1,8 +1,8 @@
 {
-  "name": "rohnamo",
+  "name": "hunarnoma",
   "version": "0.1.0",
   "private": true,
-  "description": "Rohnamo — Career & Education Discovery Platform for school graduates and future students (Central Asia / Tajikistan first).",
+  "description": "HunarNoma — Career & Education Discovery Platform for school graduates and future students (Central Asia / Tajikistan first).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

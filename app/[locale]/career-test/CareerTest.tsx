@@ -17,7 +17,7 @@ export default function CareerTest({ locale, dict }: { locale: Locale; dict: Dic
     const next = { ...answers, [q.id]: v };
     setAnswers(next);
     if (isLast) {
-      sessionStorage.setItem("rohnamo_test", JSON.stringify(next));
+      sessionStorage.setItem("hunarnoma_test", JSON.stringify(next));
       router.push(href(locale, "/career-test/result"));
     } else {
       setStep(step + 1);

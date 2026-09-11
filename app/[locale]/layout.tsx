@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LOCALES, LOCALE_META, asLocale, getDict, href, isLocale, type Locale } from "@/lib/i18n";
 
-const SITE_URL = "https://rohnamo.tj";
+const SITE_URL = "https://hunarnoma.tj";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -16,7 +16,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   const d = getDict(locale);
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: d.site.titleDefault, template: "%s · Rohnamo" },
+    title: { default: d.site.titleDefault, template: "%s · HunarNoma" },
     description: d.site.description,
     alternates: {
       canonical: href(locale),

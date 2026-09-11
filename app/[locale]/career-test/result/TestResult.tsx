@@ -30,7 +30,7 @@ export default function TestResultView({
   const [result, setResult] = useState<TestResult | null>(null);
 
   useEffect(() => {
-    const raw = sessionStorage.getItem("rohnamo_test");
+    const raw = sessionStorage.getItem("hunarnoma_test");
     if (raw) setResult(scoreTest(JSON.parse(raw)));
   }, []);
 

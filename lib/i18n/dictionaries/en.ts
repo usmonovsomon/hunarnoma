@@ -90,7 +90,7 @@ const en: Dict = {
     titleLead: "From “",
     titleAccent: "I don’t know what to become",
     titleTail: "” to “this is where I’m applying.”",
-    lead1: "Rohnamo helps you understand",
+    lead1: "HunarNoma helps you understand",
     leadBold: "who you could become",
     lead2:
       "— what skills it takes and which programs lead there. Once you get to choosing a university, we show the official NTC intake data: seats, tuition and languages of study.",
@@ -274,14 +274,14 @@ const en: Dict = {
     important: "Important",
     importantText:
       "University data is provided for reference. Always verify current information on the official university websites.",
-    copyright: "© 2026 Rohnamo — a product prototype.",
+    copyright: "© 2026 HunarNoma — a product prototype.",
   },
 
   site: {
-    titleDefault: "Rohnamo — choose your profession, program and university",
+    titleDefault: "HunarNoma — choose your profession, program and university",
     description:
-      "Rohnamo helps school students and applicants in Tajikistan and Central Asia deliberately choose a profession, a program of study and a university.",
-    ogTitle: "Rohnamo — Career & Education Discovery Platform",
+      "HunarNoma helps school students and applicants in Tajikistan and Central Asia deliberately choose a profession, a program of study and a university.",
+    ogTitle: "HunarNoma — Career & Education Discovery Platform",
     ogDescription: "From “I don’t know” to “I’m applying.”",
   },
 

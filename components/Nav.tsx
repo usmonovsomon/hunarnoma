@@ -18,7 +18,7 @@ export default function Nav({ locale }: { locale: Locale }) {
         <Link href={href(locale)} className="flex items-center gap-2">
           <img src="/logo-mark.png" alt="" className="h-9 w-9" width={128} height={128} />
           <span className="text-lg font-extrabold tracking-tight">
-            Rohnamo<span className="text-brand-600">.</span>
+            HunarNoma<span className="text-brand-600">.</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
