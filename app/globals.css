@@ -52,9 +52,71 @@ body {
     /* Pomegranate wine → ember → teal, echoing the logo's ikat gradient. */
     @apply bg-gradient-to-r from-wine-600 via-ember-500 to-brand-600 bg-clip-text text-transparent;
   }
-  .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/70 px-3 py-1 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur;
-  }
+}
+
+/* Permanent per-marker name label on the university map (components/UniversityMapLeaflet.tsx) — strip Leaflet's default tooltip chrome and use a text halo instead, so labels stay legible over any tile color without a background box. Fixed-width, single line, truncated with an ellipsis — university names run long and a wrapped multi-line label overlaps its neighbours once several pins sit close together. */
+.leaflet-tooltip.uni-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 3px;
+  display: block;
+  width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #211712;
+  text-align: center;
+  text-shadow:
+    0 0 3px #fff,
+    0 0 3px #fff,
+    0 0 3px #fff,
+    0 0 3px #fff;
+  pointer-events: none;
+}
+.leaflet-tooltip.uni-label::before {
+  display: none;
+}
+
+/* University popup on the map — re-skin Leaflet's default chrome to match the
+   site's `.card` look (rounded, soft border, layered shadow) instead of the
+   plain boxy default. */
+.leaflet-popup.uni-popup .leaflet-popup-content-wrapper {
+  border-radius: 1rem;
+  background: #fff;
+  border: 1px solid rgb(226 232 240 / 0.8);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.08),
+    0 4px 6px -4px rgb(0 0 0 / 0.08);
+}
+.leaflet-popup.uni-popup .leaflet-popup-content {
+  margin: 0.875rem 1rem;
+  width: auto !important;
+  font-family: var(--font-sans);
+}
+.leaflet-popup.uni-popup .leaflet-popup-tip-container {
+  overflow: hidden;
+}
+.leaflet-popup.uni-popup .leaflet-popup-tip {
+  background: #fff;
+  box-shadow: 0 4px 6px -4px rgb(0 0 0 / 0.08);
+}
+.leaflet-popup.uni-popup a.leaflet-popup-close-button {
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  font: 400 20px/22px serif;
+  color: #7a685f;
+  border-radius: 9999px;
+}
+.leaflet-popup.uni-popup a.leaflet-popup-close-button:hover {
+  color: #211712;
+  background: rgb(241 245 249 / 0.8);
 }
 
 @layer utilities {

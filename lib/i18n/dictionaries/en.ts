@@ -7,6 +7,7 @@ const en: Dict = {
     professions: "Professions",
     specialties: "Programs",
     universities: "Universities",
+    colleges: "Colleges",
     clusters: "Clusters",
     careerTest: "Career test",
     takeTest: "Take the test",
@@ -25,6 +26,7 @@ const en: Dict = {
 
   labels: {
     universities: "universities",
+    colleges: "colleges",
     specialties: "programs",
     programs: "intake programs",
     programsAtUnis: "programs at universities",
@@ -68,6 +70,7 @@ const en: Dict = {
     "Хатлонская область": "Khatlon region",
     "Горно-Бадахшанская автономная область": "Gorno-Badakhshan Autonomous Region",
     "Район Рашт": "Rasht district",
+    "Районы республиканского подчинения": "Districts of Republican Subordination",
   },
 
   cities: {
@@ -86,14 +89,8 @@ const en: Dict = {
   },
 
   home: {
-    eyebrow: "🎓 A guide for university applicants in Tajikistan",
-    titleLead: "From “",
-    titleAccent: "I don’t know what to become",
-    titleTail: "” to “this is where I’m applying.”",
-    lead1: "HunarNoma helps you understand",
-    leadBold: "who you could become",
-    lead2:
-      "— what skills it takes and which programs lead there. Once you get to choosing a university, we show the official NTC intake data: seats, tuition and languages of study.",
+    mapHint: "Click a point to see the university. Scroll to zoom, drag to move around the map.",
+    mapProfileLink: "University profile →",
     ctaTest: "Not sure what to become — take the test",
     ctaCatalog: "Browse professions",
     step1Title: "Find a profession",
@@ -138,6 +135,18 @@ const en: Dict = {
       "Profession descriptions are editorial — a guideline for choosing. Data on programs, universities, seats and tuition comes from the official NTC intake plan.",
   },
 
+  medicinePage: {
+    title: "Medical professions",
+    lead:
+      "From doctor and pediatrician to nurse, midwife and lab technician — the careers medicine offers, and where in Tajikistan each is taught: universities and colleges alike.",
+    metaDescription:
+      "Medical professions in Tajikistan: doctor, pediatrician, nurse, midwife, pharmacist and more — what they do and where they're taught. Official NTC data.",
+    statsProfessions: "medical professions",
+    statsUniversities: "universities train doctors",
+    statsColleges: "colleges train nurses and paramedics",
+    seeAllLink: "See all professions →",
+  },
+
   professionPage: {
     fallbackTitle: "Profession",
     metaDescription:
@@ -150,6 +159,8 @@ const en: Dict = {
     cons: "Challenges",
     studyThisTitle: "Programs that lead to this profession",
     studyThisHint: "Open a program to see every university that teaches it, seats and tuition.",
+    studyInCollegesTitle: "Where else it's taught — colleges",
+    studyInCollegesHint: "This profession isn't only a university path — it's also taught at secondary vocational colleges.",
     internationalNote:
       "This is an international profession: the NTC intake plan has no dedicated program for it — it's in demand worldwide, often remotely. Browse the program catalog for related fields if you'd like to start by studying in Tajikistan.",
     related: "Other professions in “{field}”",
@@ -212,6 +223,28 @@ const en: Dict = {
     thLanguage: "Language",
     thTuition: "Tuition / year",
     thSeats: "Seats",
+  },
+
+  collegesPage: {
+    title: "Colleges and vocational schools of Tajikistan",
+    lead:
+      "All {count} secondary vocational education institutions from the NTC registry. Medical, teacher-training, technical and other colleges across every region — with programs, seats and tuition wherever a college takes part in the NTC intake plan.",
+    metaDescription: "Colleges and vocational schools of Tajikistan: addresses, contacts, programs and intake seats. Official NTC data.",
+    searchPlaceholder: "Search a college — name or city",
+    allRegions: "All regions",
+    allTypes: "All types",
+    found: "Colleges found:",
+    empty: "Nothing found.",
+  },
+
+  collegePage: {
+    fallbackTitle: "College",
+    metaDescription: "{name} ({location}): address, contacts, programs and intake seats. NTC data.",
+  },
+
+  collegeSource: {
+    label: "NTC registry of secondary vocational institutions and intake plan",
+    note: "Not every college has programs listed — the NTC intake plan for ССУЗ covers only part of them.",
   },
 
   clusterPage: {

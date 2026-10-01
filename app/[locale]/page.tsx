@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { specialties, clusterSummaries, totals } from "@/lib/ntc";
+import { specialties, universities, clusterSummaries, totals } from "@/lib/ntc";
 import { CLUSTER_COLOR } from "@/lib/ntc/content";
 import { getClusterMeta } from "@/lib/i18n/content";
 import { PROFESSIONS, getProfession, specialtiesForProfession } from "@/lib/professions";
@@ -8,6 +8,7 @@ import { asLocale, fmt, fmtNum, getDict, href } from "@/lib/i18n";
 import { SpecialtyCard, SourceNote } from "@/components/ntc";
 import { ProfessionCard } from "@/components/professions";
 import { ProfessionsByFieldChart } from "@/components/ProfessionsByFieldChart";
+import UniversityMap from "@/components/UniversityMap";
 
 // One representative profession per field (it, engineering, science, agriculture,
 // medicine, business, law, education, media, arts), plus two extra for variety.
@@ -41,15 +42,8 @@ export default function Home({ params }: { params: { locale: string } }) {
         <div className="blob -left-24 top-0 h-72 w-72 bg-brand-200/40" />
         <div className="blob right-0 top-10 h-72 w-72 bg-brand-300/30" />
         <div className="container-page relative py-14 sm:py-20">
-          <span className="eyebrow">{d.home.eyebrow}</span>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-            {d.home.titleLead}
-            <span className="gradient-text">{d.home.titleAccent}</span>
-            {d.home.titleTail}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-            {d.home.lead1} <b>{d.home.leadBold}</b> {d.home.lead2}
-          </p>
+          <h1 className="sr-only">{d.site.titleDefault}</h1>
+          <UniversityMap locale={locale} universities={universities} />
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={href(locale, "/career-test")} className="btn-primary">{d.home.ctaTest}</Link>
             <Link href={href(locale, "/professions")} className="btn-ghost">{d.home.ctaCatalog}</Link>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "../globals.css";
+import "leaflet/dist/leaflet.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LOCALES, LOCALE_META, asLocale, getDict, href, isLocale, type Locale } from "@/lib/i18n";

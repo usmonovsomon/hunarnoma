@@ -8,6 +8,7 @@ export default function Nav({ locale }: { locale: Locale }) {
     { href: href(locale, "/professions"), label: d.nav.professions },
     { href: href(locale, "/specialties"), label: d.nav.specialties },
     { href: href(locale, "/universities"), label: d.nav.universities },
+    { href: href(locale, "/colleges"), label: d.nav.colleges },
     { href: `${href(locale)}#clusters`, label: d.nav.clusters },
     { href: href(locale, "/career-test"), label: d.nav.careerTest },
   ];

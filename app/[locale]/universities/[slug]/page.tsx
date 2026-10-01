@@ -81,7 +81,7 @@ export default function UniversityPage({ params }: { params: { locale: string; s
         </div>
         <h1 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">{universityName(locale, u.id, u.name)}</h1>
         <div className="mt-3 space-y-1 text-sm text-ink-soft">
-          <div>📍 {u.address || cityName(d, u.city)}{u.region ? ` · ${regionName(d, u.region)}` : ""}</div>
+          {/*<div>📍 {u.address || cityName(d, u.city)}{u.region ? ` · ${regionName(d, u.region)}` : ""}</div>*/}
           {u.phone && <PhoneLinks locale={locale} phone={u.phone} />}
           {u.website && (
             <div>

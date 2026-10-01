@@ -35,6 +35,12 @@ export function getProfessionFieldMeta(locale: Locale): Record<ProfessionFieldId
 export const getProfessionField = (locale: Locale, id: ProfessionFieldId): ProfessionFieldMeta =>
   ({ ...PROFESSION_FIELD_BASE[id], ...bundleFor(locale).fields[id] });
 
-/** Curated copy for a profession, or null when it has none (should not happen — every id in base.ts has text). */
+/**
+ * Curated copy for a profession. Falls back to the Russian bundle when a
+ * locale hasn't translated this profession yet — same "degrade to Russian,
+ * not to emptiness" rule the rest of the i18n layer follows (see README).
+ * Returns null only if even the Russian bundle has no entry (should not
+ * happen — every id in base.ts needs at least Russian text).
+ */
 export const getProfessionText = (locale: Locale, id: string): ProfessionText | null =>
-  bundleFor(locale).professions[id] ?? null;
+  bundleFor(locale).professions[id] ?? ru.professions[id] ?? null;

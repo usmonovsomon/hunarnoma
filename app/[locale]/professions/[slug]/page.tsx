@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PROFESSIONS, getProfession, professionsInField, specialtiesForProfession } from "@/lib/professions";
+import { PROFESSIONS, getProfession, professionsInField, specialtiesForProfession, collegeSpecialtiesForProfession } from "@/lib/professions";
 import { getProfessionField, getProfessionText } from "@/lib/i18n/professions";
 import { asLocale, fmt, getDict, href, type Locale } from "@/lib/i18n";
-import { SpecialtyCard } from "@/components/ntc";
+import { SpecialtyCard, CollegeSpecialtyCard } from "@/components/ntc";
 import { FieldPill, InternationalBadge } from "@/components/professions";
 
 export function generateStaticParams() {
@@ -47,6 +47,7 @@ export default function ProfessionPage({ params }: { params: { locale: string; s
 
   const field = getProfessionField(locale, p.fieldId);
   const specialties = specialtiesForProfession(p);
+  const collegeSpecialties = collegeSpecialtiesForProfession(p);
   const related = professionsInField(p.fieldId)
     .filter((x) => x.id !== p.id)
     .map((x) => ({ p: x, text: getProfessionText(locale, x.id) }))
@@ -114,6 +115,16 @@ export default function ProfessionPage({ params }: { params: { locale: string; s
           {d.professionPage.internationalNote}
         </p>
       ) : null}
+
+      {collegeSpecialties.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-xl font-bold">{d.professionPage.studyInCollegesTitle}</h2>
+          <p className="mt-1 text-sm text-ink-muted">{d.professionPage.studyInCollegesHint}</p>
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {collegeSpecialties.map((s) => <CollegeSpecialtyCard key={s.code} locale={locale} s={s} />)}
+          </div>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="mt-10">

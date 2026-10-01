@@ -75,6 +75,13 @@ export interface ProfessionBase {
    */
   specialtyCodes: string[];
   /**
+   * Real college (ССУЗ) specialty codes (lib/colleges/data.json) — for
+   * professions taught at secondary vocational level (nurse, midwife, lab
+   * technician…) where the NTC admission plan has no matching university
+   * program at all, so specialtyCodes alone would show nothing.
+   */
+  collegeSpecialtyCodes?: string[];
+  /**
    * True for professions built around studying/working abroad or fully
    * remote/global roles, rather than a specific NTC-listed program. Shown as
    * an "international" badge; never paired with a fabricated specialty link.
@@ -86,7 +93,7 @@ export const PROFESSIONS: ProfessionBase[] = [
   // IT и технологии
   { id: "software-developer", slug: "software-developer", fieldId: "it", specialtyCodes: ["1400101", "140010202"] },
   { id: "web-ui-designer", slug: "web-ui-designer", fieldId: "it", specialtyCodes: ["131030408"] },
-  { id: "ai-data-specialist", slug: "ai-data-specialist", fieldId: "it", specialtyCodes: ["1400301", "1310304"] },
+  { id: "ai-data-specialist", slug: "ai-data-specialist", fieldId: "it", specialtyCodes: ["1400301", "1310304", "140030103"] },
   { id: "cybersecurity-specialist", slug: "cybersecurity-specialist", fieldId: "it", specialtyCodes: ["198010101"] },
   { id: "telecom-engineer", slug: "telecom-engineer", fieldId: "it", specialtyCodes: ["1450101", "1450103", "145010201"] },
   { id: "robotics-engineer", slug: "robotics-engineer", fieldId: "it", specialtyCodes: ["1530106"] },
@@ -110,7 +117,7 @@ export const PROFESSIONS: ProfessionBase[] = [
   { id: "metallurgical-engineer", slug: "metallurgical-engineer", fieldId: "engineering", specialtyCodes: ["14201010104", "136020105"] },
 
   // Наука
-  { id: "biologist", slug: "biologist", fieldId: "science", specialtyCodes: ["1020401", "131010101"] },
+  { id: "biologist", slug: "biologist", fieldId: "science", specialtyCodes: ["1020401", "131010101", "174020301"] },
   { id: "chemist", slug: "chemist", fieldId: "science", specialtyCodes: ["1020403", "131050101"] },
   { id: "physicist", slug: "physicist", fieldId: "science", specialtyCodes: ["1310402", "13104010207"] },
   { id: "geologist", slug: "geologist", fieldId: "science", specialtyCodes: ["151010104", "151010102"] },
@@ -121,13 +128,23 @@ export const PROFESSIONS: ProfessionBase[] = [
   // Медицина и здоровье
   { id: "doctor", slug: "doctor", fieldId: "medicine", specialtyCodes: ["1790101"] },
   { id: "dentist", slug: "dentist", fieldId: "medicine", specialtyCodes: ["1790107"] },
-  { id: "pharmacist", slug: "pharmacist", fieldId: "medicine", specialtyCodes: ["1790108"] },
+  { id: "pharmacist", slug: "pharmacist", fieldId: "medicine", specialtyCodes: ["1790108", "1790103", "148020102", "148020104"] },
+  { id: "pediatrician", slug: "pediatrician", fieldId: "medicine", specialtyCodes: ["1790102"] },
+  { id: "nurse", slug: "nurse", fieldId: "medicine", specialtyCodes: [], collegeSpecialtyCodes: ["2790106", "2790131", "279010601"] },
+  { id: "midwife", slug: "midwife", fieldId: "medicine", specialtyCodes: [], collegeSpecialtyCodes: ["2790102", "2190102"] },
+  { id: "dental-technician", slug: "dental-technician", fieldId: "medicine", specialtyCodes: [], collegeSpecialtyCodes: ["2790107", "2790132", "2790133"] },
+  { id: "medical-lab-technician", slug: "medical-lab-technician", fieldId: "medicine", specialtyCodes: ["1790104"], collegeSpecialtyCodes: ["2790104"] },
+  { id: "public-health-physician", slug: "public-health-physician", fieldId: "medicine", specialtyCodes: [], collegeSpecialtyCodes: ["2790103", "2790105"] },
+  { id: "medical-psychologist", slug: "medical-psychologist", fieldId: "medicine", specialtyCodes: ["1790105", "179010501"] },
+  { id: "physiotherapist", slug: "physiotherapist", fieldId: "medicine", specialtyCodes: [], collegeSpecialtyCodes: ["2790135", "2790136"] },
+  { id: "biomedical-scientist", slug: "biomedical-scientist", fieldId: "medicine", specialtyCodes: ["1800201", "13101010121", "13101010221", "13104010112"] },
 
   // Сельское хозяйство
-  { id: "agronomist", slug: "agronomist", fieldId: "agriculture", specialtyCodes: ["1740201", "17402012602", "17402042501", "1740206"] },
-  { id: "veterinarian", slug: "veterinarian", fieldId: "agriculture", specialtyCodes: ["1740302", "1740372", "174030201"] },
-  { id: "zootechnician", slug: "zootechnician", fieldId: "agriculture", specialtyCodes: ["1740301", "17403012602"] },
+  { id: "agronomist", slug: "agronomist", fieldId: "agriculture", specialtyCodes: ["1740201", "17402012602", "17402042501", "1740206", "1740204", "174020101", "1750201", "1740202", "1740203"] },
+  { id: "veterinarian", slug: "veterinarian", fieldId: "agriculture", specialtyCodes: ["1740302", "1740372", "174030201"], collegeSpecialtyCodes: ["274030208"] },
+  { id: "zootechnician", slug: "zootechnician", fieldId: "agriculture", specialtyCodes: ["1740301", "17403012602", "174030103", "174030107", "174030108"] },
   { id: "irrigation-engineer", slug: "irrigation-engineer", fieldId: "agriculture", specialtyCodes: ["1740501", "17405012602", "174050102"] },
+  { id: "forester", slug: "forester", fieldId: "agriculture", specialtyCodes: ["175010101", "175020104"] },
 
   // Бизнес и финансы
   { id: "economist", slug: "economist", fieldId: "business", specialtyCodes: ["1250103"] },

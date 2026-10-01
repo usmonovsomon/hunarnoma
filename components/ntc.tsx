@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CLUSTER_COLOR } from "@/lib/ntc/content";
 import { getClusterMeta } from "@/lib/i18n/content";
 import { SOURCE, type Specialty, type University } from "@/lib/ntc";
+import { COLLEGE_SOURCE, type CollegeSpecialty } from "@/lib/colleges";
 import { fmtNum, getDict, href, plural, type Locale } from "@/lib/i18n";
 import { cityName, specialtyName, uniTypeLabel, universityName, universityShortName } from "@/lib/i18n/data";
 import { parsePhones } from "@/lib/phone";
@@ -49,6 +50,22 @@ export function SourceNote({ locale, className = "" }: { locale: Locale; classNa
         ntc.tj ↗
       </a>{" "}
       · {d.source.note}
+    </div>
+  );
+}
+
+export function CollegeSourceNote({ locale, className = "" }: { locale: Locale; className?: string }) {
+  const d = getDict(locale);
+  return (
+    <div className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-ink-muted ${className}`}>
+      <span className="mr-1.5 inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-0.5 font-semibold text-green-700">
+        {d.source.badge}
+      </span>
+      {d.source.prefix} {d.collegeSource.label}.{" "}
+      <a href={COLLEGE_SOURCE.url} target="_blank" rel="noreferrer" className="font-medium text-brand-600 hover:underline">
+        ntc.tj ↗
+      </a>{" "}
+      · {d.collegeSource.note}
     </div>
   );
 }
@@ -103,6 +120,27 @@ export function SpecialtyCard({ locale, s }: { locale: Locale; s: Specialty }) {
         {s.stats.freeSeats > 0 && (
           <span className="text-green-700">{fmtNum(locale, s.stats.freeSeats)} {d.labels.budget}</span>
         )}
+      </div>
+    </Link>
+  );
+}
+
+/** Info card for a college (ССУЗ) specialty — no detail page exists for these yet, so it just links onward to the colleges catalog rather than a specific specialty URL. */
+export function CollegeSpecialtyCard({ locale, s }: { locale: Locale; s: CollegeSpecialty }) {
+  const d = getDict(locale);
+  const m = getClusterMeta(locale)[s.cluster];
+  return (
+    <Link href={href(locale, "/colleges")} className="card group flex flex-col p-4">
+      <div className="flex items-center gap-2 text-xs text-ink-muted">
+        <span>{m?.emoji}</span>
+        <span className="truncate">{m?.name}</span>
+      </div>
+      <div className="mt-1.5 line-clamp-2 font-bold leading-snug text-ink group-hover:text-brand-700">
+        {s.name}
+      </div>
+      <div className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-3 text-xs text-ink-soft">
+        <span>🏫 {s.stats.colleges} {d.labels.colleges}</span>
+        <span>🎟 {fmtNum(locale, s.stats.totalSeats)} {d.labels.seatsShort}</span>
       </div>
     </Link>
   );
