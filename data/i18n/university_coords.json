@@ -7,9 +7,12 @@
     "display": "улица Ш. Шохтемур, Тирчид, Хорог, Шугнанский район, Горно-Бадахшанская автономная область, 736000, Таджикистан"
   },
   "u2": {
-    "lat": 37.4938,
-    "lon": 71.5417,
-    "source": "city-fallback"
+    "lat": 37.4917938,
+    "lon": 71.5441256,
+    "source": "name",
+    "display": "Университет Централъной Азии, 126, улица Ш. Шохтемур, Варакат, Хорог, Шугнанский район, Горно-Бадахшанская автономная область, 736000, Таджикистан",
+    "osmClass": "amenity",
+    "osmType": "university"
   },
   "u3": {
     "lat": 40.3058848,
@@ -72,9 +75,12 @@
     "source": "city-fallback"
   },
   "u13": {
-    "lat": 37.9142,
-    "lon": 69.7822,
-    "source": "city-fallback"
+    "lat": 37.9147928,
+    "lon": 69.7844502,
+    "source": "street",
+    "street": "улица Сафарова",
+    "display": "город Кулоб улица Сангака Сафарова, Куляб, Таджикистан",
+    "note": "Street confirmed via the institution's own Google Maps listing (ул. Сафарова 16), then geocoded against OSM."
   },
   "u14": {
     "lat": 37.8309856,
@@ -135,9 +141,12 @@
     "display": "проспект Рудаки, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
   },
   "u24": {
-    "lat": 38.5598,
-    "lon": 68.787,
-    "source": "city-fallback"
+    "lat": 38.5645648,
+    "lon": 68.7891691,
+    "source": "name",
+    "display": "Таджикский технический университет имени академика М. Осими, улица Академиков Раджабовых, Шохмансур, Душанбе, 734000, Таджикистан",
+    "osmClass": "amenity",
+    "osmType": "university"
   },
   "u25": {
     "lat": 38.5923236,
@@ -175,9 +184,12 @@
     "display": "улица Нахимова, Сино, Душанбе, 734000, Таджикистан"
   },
   "u30": {
-    "lat": 38.5598,
-    "lon": 68.787,
-    "source": "city-fallback"
+    "lat": 38.5256241,
+    "lon": 68.7549251,
+    "source": "name",
+    "display": "Международный университет Туризма и Предпринимательства Таджикистана, улица Борбад, 62-й микрорайон, район Фирдавси, Душанбе, 734000, Таджикистан",
+    "osmClass": "amenity",
+    "osmType": "university"
   },
   "u31": {
     "lat": 38.5792673,
@@ -187,14 +199,19 @@
     "display": "улица Фазлиддина Мухаммадиева, Хуснообод, Сино, Душанбе, 734000, Таджикистан"
   },
   "u32": {
-    "lat": 38.5598,
-    "lon": 68.787,
-    "source": "city-fallback"
+    "lat": 38.6073612,
+    "lon": 68.7654228,
+    "source": "name",
+    "display": "Лучоб, Навободи Боло, Ноҳияи Сино, Душанбе, Таджикистан",
+    "note": "Matches the dataset address (посёлок Лучоб) and the institution's own Google Maps listing, which places it in the Luchob neighbourhood near the Varzob river."
   },
   "u33": {
-    "lat": 38.5598,
-    "lon": 68.787,
-    "source": "city-fallback"
+    "lat": 38.5218457,
+    "lon": 68.746769,
+    "source": "street",
+    "street": "улица Борбад",
+    "display": "улица Борбад, 62-й микрорайон, район Фирдавси, Душанбе, Таджикистан",
+    "note": "Street confirmed via the institution's own Google Maps listing (кӯчаи Борбад 73); exact house number not resolvable in OSM, so this is a point along Borbad street rather than the exact building."
   },
   "u34": {
     "lat": 38.5875664,
@@ -204,9 +221,12 @@
     "display": "Улица Шодмони, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
   },
   "u35": {
-    "lat": 38.5598,
-    "lon": 68.787,
-    "source": "city-fallback"
+    "lat": 38.5588864,
+    "lon": 68.7630541,
+    "source": "street",
+    "street": "кӯчаи Гаффор Мирзо (К.Цеткин)",
+    "display": "кӯчаи Гаффор Мирзо (К.Цеткин), 10-й микрорайон, Ноҳияи Сино, Душанбе, Таджикистан",
+    "note": "The dataset address (улица Клары Цеткин) is the Soviet-era name of this street; OSM confirms the rename to Гаффор Мирзо with an explicit alt-name tag."
   },
   "u36": {
     "lat": 38.5535262,
@@ -221,9 +241,12 @@
     "source": "city-fallback"
   },
   "u38": {
-    "lat": 38.5598,
-    "lon": 68.787,
-    "source": "city-fallback"
+    "lat": 38.5947643,
+    "lon": 68.7833975,
+    "source": "street",
+    "street": "улица Саида Носирова",
+    "display": "улица Саида Носирова, Район Исмоили Сомони, Душанбе, Таджикистан",
+    "note": "Exact match for the dataset address (улица Саида Носира)."
   },
   "u39": {
     "lat": 38.5811327,
