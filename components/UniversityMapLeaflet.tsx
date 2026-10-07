@@ -104,7 +104,7 @@ export default function UniversityMapLeaflet({ locale, universities }: { locale:
 
   return (
     <div className="w-full">
-      <div className="h-[420px] w-full overflow-hidden rounded-2xl border border-slate-200 sm:h-[500px] lg:h-[600px]">
+      <div className="h-[320px] w-full overflow-hidden rounded-2xl border border-slate-200 sm:h-[380px] lg:h-[440px]">
         <MapContainer center={[38.55, 70.3]} zoom={7} minZoom={6} maxZoom={18} scrollWheelZoom className="h-full w-full">
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors'

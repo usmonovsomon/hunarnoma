@@ -56,6 +56,16 @@ export default function Home({ params }: { params: { locale: string } }) {
             </p>
             <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-wine-500 via-ember-500 to-brand-500" />
           </div>
+          <div className="mb-10 grid gap-4 sm:grid-cols-3">
+            {steps.map((s) => (
+              <div key={s.n} className="card p-5">
+                <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 font-bold text-white">{s.n}</div>
+                <h3 className="mt-3 font-bold">{s.t}</h3>
+                <p className="mt-1 text-sm text-ink-soft">{s.text}</p>
+              </div>
+            ))}
+          </div>
+
           <p className="mb-3 text-center text-sm font-bold tracking-tight text-brand-700">{d.home.mapMotto}</p>
           <UniversityMap locale={locale} universities={universities} />
           <div className="mt-7 flex flex-wrap gap-3">
@@ -98,19 +108,6 @@ export default function Home({ params }: { params: { locale: string } }) {
               specialtyCount={specialtiesForProfession(p).length}
               international={p.international}
             />
-          ))}
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="container-page py-8">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {steps.map((s) => (
-            <div key={s.n} className="card p-5">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 font-bold text-white">{s.n}</div>
-              <h3 className="mt-3 font-bold">{s.t}</h3>
-              <p className="mt-1 text-sm text-ink-soft">{s.text}</p>
-            </div>
           ))}
         </div>
       </section>
