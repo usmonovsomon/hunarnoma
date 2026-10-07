@@ -89,7 +89,6 @@ const en: Dict = {
   },
 
   home: {
-    mapMotto: "Find your place on the map of the future",
     mapHint: "Click a point to see the university. Scroll to zoom, drag to move around the map.",
     mapProfileLink: "University profile →",
     ctaTest: "Not sure what to become — take the test",
@@ -112,6 +111,8 @@ const en: Dict = {
     unisCtaText:
       "Public and private universities in every region: programs, seats, tuition, language of study and contacts.",
     unisCtaButton: "Open universities",
+    mentorshipBadge: "Coming soon",
+    mentorshipText: "Talk to professionals and learn from their experience.",
     professionsTitle: "Which profession should you start with?",
     professionsLead: "What a specialist does, and which university programs lead to it.",
     professionsCta: "All professions",

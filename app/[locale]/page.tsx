@@ -10,6 +10,15 @@ import { ProfessionCard } from "@/components/professions";
 import { ProfessionsByFieldChart } from "@/components/ProfessionsByFieldChart";
 import UniversityMap from "@/components/UniversityMap";
 
+// The hero motto, shown in all three site languages at once regardless of the
+// current locale — a deliberate statement that this is a trilingual product,
+// not a per-locale dictionary string like the rest of the page.
+const MOTTO = [
+  "Профессия остаётся с тобой на всю жизнь. HunarNoma поможет выбрать её осознанно. Здесь 124 профессии, суть каждой работы и путь к ней: что изучать и где.",
+  "Ҳунар тамоми умр бо ту мемонад. HunarNoma кӯмак мекунад, ки онро огоҳона интихоб кунӣ. Дар ин ҷо 124 касб, моҳияти ҳар кор ва роҳи расидан ба он ҳаст: чӣ хондан ва дар куҷо.",
+  "A profession stays with you for life. HunarNoma helps you choose it wisely. Here you'll find 124 professions, what each job is really about, and the path to it: what to study and where.",
+];
+
 // One representative profession per field (it, engineering, science, agriculture,
 // medicine, business, law, education, media, arts), plus two extra for variety.
 const HOME_PROFESSION_SLUGS = [
@@ -43,11 +52,17 @@ export default function Home({ params }: { params: { locale: string } }) {
         <div className="blob right-0 top-10 h-72 w-72 bg-brand-300/30" />
         <div className="container-page relative py-14 sm:py-20">
           <h1 className="sr-only">{d.site.titleDefault}</h1>
-          <div className="mb-8 text-center">
-            <p className="gradient-text-flow text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              {d.home.mapMotto}
-            </p>
-            <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-wine-500 via-ember-500 to-brand-500" />
+          <div className="mx-auto mb-8 max-w-3xl text-center">
+            {MOTTO.map((text, i) => (
+              <div key={i}>
+                {i > 0 && (
+                  <div className="mx-auto my-4 h-1 w-16 rounded-full bg-gradient-to-r from-wine-500 via-ember-500 to-brand-500" />
+                )}
+                <p className="gradient-text-flow text-lg font-bold leading-snug tracking-tight sm:text-xl lg:text-2xl">
+                  {text}
+                </p>
+              </div>
+            ))}
           </div>
           <UniversityMap locale={locale} universities={universities} />
           <div className="mt-7 flex flex-wrap gap-3">
@@ -104,6 +119,19 @@ export default function Home({ params }: { params: { locale: string } }) {
               <p className="mt-1 text-sm text-ink-soft">{s.text}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Mentorship — coming soon */}
+      <section className="container-page py-8">
+        <div className="card flex flex-col items-start gap-4 border-dashed border-ember-200 bg-ember-50/40 p-6 sm:flex-row sm:items-center">
+          <span className="text-3xl">🤝</span>
+          <div>
+            <span className="inline-flex items-center rounded-full bg-ember-50 px-3 py-1 text-xs font-semibold text-ember-700 ring-1 ring-inset ring-ember-100">
+              {d.home.mentorshipBadge}
+            </span>
+            <p className="mt-2 text-ink-soft">{d.home.mentorshipText}</p>
+          </div>
         </div>
       </section>
 
