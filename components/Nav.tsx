@@ -10,6 +10,7 @@ export default function Nav({ locale }: { locale: Locale }) {
     { href: href(locale, "/universities"), label: d.nav.universities },
     { href: href(locale, "/colleges"), label: d.nav.colleges },
     { href: `${href(locale)}#clusters`, label: d.nav.clusters },
+    { href: href(locale, "/mentorship"), label: d.nav.mentorship },
     { href: href(locale, "/career-test"), label: d.nav.careerTest },
   ];
 

@@ -228,7 +228,6 @@ export const PROFESSIONS: ProfessionBase[] = [
   { id: "product-manager", slug: "product-manager", fieldId: "business", specialtyCodes: [], international: true },
   { id: "management-consultant", slug: "management-consultant", fieldId: "business", specialtyCodes: [], international: true },
   { id: "investment-analyst", slug: "investment-analyst", fieldId: "business", specialtyCodes: [], international: true },
-  { id: "actuary", slug: "actuary", fieldId: "business", specialtyCodes: [], international: true },
   { id: "devops-engineer", slug: "devops-engineer", fieldId: "it", specialtyCodes: [], international: true },
   { id: "cloud-engineer", slug: "cloud-engineer", fieldId: "it", specialtyCodes: [], international: true },
   { id: "ux-researcher", slug: "ux-researcher", fieldId: "it", specialtyCodes: [], international: true },

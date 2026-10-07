@@ -2291,27 +2291,6 @@ const en: ProfessionContentBundle = {
         "Brokerage and asset management firms"
       ],
     },
-    "actuary": {
-      name: "Actuary",
-      tagline: "Calculates financial risk using mathematics",
-      summary: "Uses mathematics and statistics to assess risk — for example, how much an insurance policy or pension plan should cost.",
-      whatTheyDo: [
-        "Builds mathematical models of financial and insurance risk",
-        "Calculates the price of insurance policies and pension plans",
-        "Assesses the probability of large payouts and losses",
-        "Prepares reports for insurance and financial companies and regulators"
-      ],
-      skills: ["Deep knowledge of mathematics, statistics and probability theory", "English", "Analytical thinking", "Precision and patience in calculations", "Willingness to sit multi-year international professional exams"],
-      schoolSubjects: ["Mathematics", "A foreign language"],
-      pros: ["One of the highest-paid professions in the world", "In demand at insurance and financial companies worldwide"],
-      cons: ["Requires several years of demanding international professional exams", "A niche specialization in the region — almost no local job openings"],
-      workplaces: [
-        "International insurance companies",
-        "Pension and social insurance funds",
-        "Actuarial consulting firms",
-        "Risk management departments at large banks"
-      ],
-    },
     "devops-engineer": {
       name: "DevOps Engineer",
       tagline: "Automates how software is shipped and run",

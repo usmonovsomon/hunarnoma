@@ -9,6 +9,7 @@ const en: Dict = {
     universities: "Universities",
     colleges: "Colleges",
     clusters: "Clusters",
+    mentorship: "Mentorship",
     careerTest: "Career test",
     takeTest: "Take the test",
     home: "Home",
@@ -111,8 +112,6 @@ const en: Dict = {
     unisCtaText:
       "Public and private universities in every region: programs, seats, tuition, language of study and contacts.",
     unisCtaButton: "Open universities",
-    mentorshipBadge: "Coming soon",
-    mentorshipText: "Talk to professionals and learn from their experience.",
     professionsTitle: "Which profession should you start with?",
     professionsLead: "What a specialist does, and which university programs lead to it.",
     professionsCta: "All professions",
@@ -147,6 +146,22 @@ const en: Dict = {
     statsUniversities: "universities train doctors",
     statsColleges: "colleges train nurses and paramedics",
     seeAllLink: "See all professions →",
+  },
+
+  mentorshipPage: {
+    title: "Mentorship",
+    badge: "Coming soon",
+    lead: "Talk to real professionals in the career you're curious about — and find out for sure whether it's really for you.",
+    metaDescription: "HunarNoma's mentorship program — coming soon. Talk to professionals in the career you're considering and learn from their experience.",
+    step1Title: "Pick a profession",
+    step1Text: "From the catalog of 123 professions — the one you want to understand from the inside.",
+    step2Title: "Talk to a professional",
+    step2Text: "A short call or chat with someone who actually does this work every day.",
+    step3Title: "Decide with real information",
+    step3Text: "See the profession from the inside — not just a description, but an actual working day.",
+    ctaText: "While the program is being built, start with the interest-based test or browse the profession catalog.",
+    ctaTest: "Take the test",
+    ctaCatalog: "See professions",
   },
 
   professionPage: {
