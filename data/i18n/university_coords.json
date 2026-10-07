@@ -1,10 +1,9 @@
 {
   "u1": {
-    "lat": 37.4938725,
-    "lon": 71.5585754,
-    "source": "street",
-    "street": "улица Ш. Шохтемур",
-    "display": "улица Ш. Шохтемур, Тирчид, Хорог, Шугнанский район, Горно-Бадахшанская автономная область, 736000, Таджикистан"
+    "lat": 37.4919209,
+    "lon": 71.5529222,
+    "source": "name",
+    "note": "Verified against Google Maps (Khorog State University); exact name+street match in OSM, ~25m from Google pin. Previous street-only geocode was ~530m off."
   },
   "u2": {
     "lat": 37.4917938,
@@ -15,11 +14,11 @@
     "osmType": "university"
   },
   "u3": {
-    "lat": 40.3058848,
-    "lon": 69.6132828,
+    "lat": 40.2732624,
+    "lon": 69.6421899,
     "source": "street",
-    "street": "проезд Мавлонбекова",
-    "display": "проезд Мавлонбекова, 19 микрорайон, г.Худжанд, Согдийская область, 735700, Таджикистан"
+    "street": "кӯчаи Гагарин",
+    "note": "Verified against Google Maps (ул. Гагарина); previous street-geocode was ~4.6km off, resolved to the wrong part of Khujand entirely."
   },
   "u4": {
     "lat": 40.2833,
@@ -27,32 +26,30 @@
     "source": "city-fallback"
   },
   "u5": {
-    "lat": 40.2325252,
-    "lon": 69.7047254,
+    "lat": 40.2331454,
+    "lon": 69.6974979,
     "source": "street",
-    "street": "улица Московская",
-    "display": "Московская улица, Бустон, г.Бӯстон, Согдийская область, 735730, Таджикистан"
+    "street": "кучаи Московский",
+    "note": "Verified against Google Maps; previous point was ~600m off along the same street."
   },
   "u6": {
-    "lat": 39.4942178,
-    "lon": 67.594486,
+    "lat": 39.4935886,
+    "lon": 67.5956404,
     "source": "street",
-    "street": "проспект Рудаки",
-    "display": "проспект Рудаки, Пенджикент, Пенджикентский район, Согдийская область, 735500, Таджикистан"
+    "street": "улица Абуали Ибн Сино",
+    "note": "Cross-street near the institute, confirmed via Google Maps; modest improvement over the previous point."
   },
   "u7": {
-    "lat": 40.269279,
-    "lon": 69.6465938,
-    "source": "street",
-    "street": "проспект Исмоили Сомони",
-    "display": "проспект Исмоили Сомони, Кӯйи Қозӣ, Шейх Бурхан, г.Худжанд, Согдийская область, 735690, Таджикистан"
+    "lat": 40.2716438,
+    "lon": 69.6411198,
+    "source": "name",
+    "note": "Exact OSM amenity=university match by name, at the correct address (просп. Исмоили Сомони 226)."
   },
   "u8": {
-    "lat": 40.269279,
-    "lon": 69.6465938,
-    "source": "street",
-    "street": "проспект Исмоили Сомони",
-    "display": "проспект Исмоили Сомони, Кӯйи Қозӣ, Шейх Бурхан, г.Худжанд, Согдийская область, 735690, Таджикистан"
+    "lat": 40.2737484,
+    "lon": 69.6396718,
+    "source": "name",
+    "note": "OSM tags nearby POIs by this institute's own acronym (ИЭТ ТГУК — parking/cafeteria), confirming the campus location. Previously collapsed onto the same point as 3 other unrelated Khujand universities."
   },
   "u9": {
     "lat": 40.2833,
@@ -83,11 +80,11 @@
     "note": "Street confirmed via the institution's own Google Maps listing (ул. Сафарова 16), then geocoded against OSM."
   },
   "u14": {
-    "lat": 37.8309856,
-    "lon": 68.7715184,
+    "lat": 37.8381591,
+    "lon": 68.7864112,
     "source": "street",
-    "street": "улица Айни",
-    "display": "улица Айни, Маданияти поён, Бохтар, Кушониёнский район, Хатлонская область, 733036, Таджикистан"
+    "street": "кӯчаи Айнӣ",
+    "note": "Verified against Google Maps (ул. Айни 67) — only ~33m from Google's pin. Previous point was ~1.3km off."
   },
   "u15": {
     "lat": 38.0333,
@@ -120,25 +117,22 @@
     "source": "city-fallback"
   },
   "u21": {
-    "lat": 38.5974306,
-    "lon": 68.7868583,
-    "source": "street",
-    "street": "проспект Рудаки",
-    "display": "проспект Рудаки, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
+    "lat": 38.5893548,
+    "lon": 68.7734591,
+    "source": "name",
+    "note": "Exact OSM name match (Донишгоҳи миллии Тоҷикистон). Was previously collapsed onto the same generic Rudaki-avenue point as two other universities."
   },
   "u22": {
-    "lat": 38.5974306,
-    "lon": 68.7868583,
-    "source": "street",
-    "street": "проспект Рудаки",
-    "display": "проспект Рудаки, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
+    "lat": 38.593413,
+    "lon": 68.785513,
+    "source": "name",
+    "note": "Exact OSM name+house-number match (Рудаки 121). Was previously collapsed onto the same point as TNU and the Agrarian University."
   },
   "u23": {
-    "lat": 38.5974306,
-    "lon": 68.7868583,
-    "source": "street",
-    "street": "проспект Рудаки",
-    "display": "проспект Рудаки, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
+    "lat": 38.6110274,
+    "lon": 68.7871975,
+    "source": "name",
+    "note": "Exact OSM name match, directly on хиёбони Рӯдакӣ matching the dataset address. Was previously collapsed onto the same point as TNU and the Pedagogical University."
   },
   "u24": {
     "lat": 38.5645648,
@@ -149,32 +143,28 @@
     "osmType": "university"
   },
   "u25": {
-    "lat": 38.5923236,
-    "lon": 68.7570376,
-    "source": "street",
-    "street": "улица Сино",
-    "display": "Creative Development of Tajikistan centre, улица Навабад, Дехи боло, Навободи Боло, Сино, Душанбе, 734000, Таджикистан"
+    "lat": 38.6017832,
+    "lon": 68.7853615,
+    "source": "name",
+    "note": "Exact OSM name+house-number match (Рудаки 139), confirmed against Google Maps. Previous point had matched an unrelated 'Creative Development of Tajikistan centre' on a different street entirely."
   },
   "u26": {
-    "lat": 38.5328753,
-    "lon": 68.7571944,
-    "source": "street",
-    "street": "улица Дехоти",
-    "display": "улица Дехоти, 46-й микрорайон, район Фирдавси, Душанбе, 734000, Таджикистан"
+    "lat": 38.5318035,
+    "lon": 68.7578997,
+    "source": "name",
+    "note": "Exact OSM name match directly on улица Дехоти, matching the dataset address."
   },
   "u27": {
-    "lat": 38.5440589,
-    "lon": 68.7631769,
-    "source": "street",
-    "street": "улица Н. Карабаева",
-    "display": "улица Н. Карабаева, район Фирдавси, Душанбе, 734000, Таджикистан"
+    "lat": 38.5295615,
+    "lon": 68.7575389,
+    "source": "name",
+    "note": "Verified against Google Maps (independently confirms this location). Previous street-based point was ~1.7km off, on the wrong segment of a long avenue."
   },
   "u28": {
-    "lat": 38.5796256,
-    "lon": 68.7937455,
-    "source": "street",
-    "street": "улица Мирзо Турсунзаде",
-    "display": "улица Мирзо Турсунзаде, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
+    "lat": 38.5754399,
+    "lon": 68.792997,
+    "source": "name",
+    "note": "Exact OSM name+house-number match (Турсунзода 30). Was previously collapsed onto the same point as the MEI branch."
   },
   "u29": {
     "lat": 38.5177415,
@@ -192,11 +182,11 @@
     "osmType": "university"
   },
   "u31": {
-    "lat": 38.5792673,
-    "lon": 68.7240894,
+    "lat": 38.5759064,
+    "lon": 68.7307686,
     "source": "street",
-    "street": "улица Мухаммадиева",
-    "display": "улица Фазлиддина Мухаммадиева, Хуснообод, Сино, Душанбе, 734000, Таджикистан"
+    "street": "кӯчаи Фазлиддин Муҳаммадиев",
+    "note": "Verified against Google Maps; closer segment of the same street, ~190m from Google's pin (was ~590m)."
   },
   "u32": {
     "lat": 38.6073612,
@@ -229,11 +219,10 @@
     "note": "The dataset address (улица Клары Цеткин) is the Soviet-era name of this street; OSM confirms the rename to Гаффор Мирзо with an explicit alt-name tag."
   },
   "u36": {
-    "lat": 38.5535262,
-    "lon": 68.8464065,
-    "source": "street",
-    "street": "улица Айни",
-    "display": "улица Айни, Шохмансур, Душанбе, Район Рудаки, Районы республиканского подчинения, 735100, Таджикистан"
+    "lat": 38.5635115,
+    "lon": 68.7990881,
+    "source": "name",
+    "note": "Exact OSM name+house-number match (Айни 31). Previous point had resolved to a same-named street in a completely different district ~4.3km away."
   },
   "u37": {
     "lat": 38.5598,
@@ -256,11 +245,10 @@
     "display": "улица Бохтар, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
   },
   "u40": {
-    "lat": 38.5796256,
-    "lon": 68.7937455,
-    "source": "street",
-    "street": "улица Мирзо Турсунзаде",
-    "display": "улица Мирзо Турсунзаде, Район Исмоили Сомони, Душанбе, 734000, Таджикистан"
+    "lat": 38.58229,
+    "lon": 68.7936529,
+    "source": "name",
+    "note": "Exact OSM name match, on кӯчаи Турсунзода matching the dataset address. Was previously collapsed onto the same point as the Slavonic University."
   },
   "u41": {
     "lat": 38.5621575,
