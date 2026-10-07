@@ -43,6 +43,7 @@ export default function Home({ params }: { params: { locale: string } }) {
         <div className="blob right-0 top-10 h-72 w-72 bg-brand-300/30" />
         <div className="container-page relative py-14 sm:py-20">
           <h1 className="sr-only">{d.site.titleDefault}</h1>
+          <p className="mb-5 text-center text-lg font-bold tracking-tight text-brand-700 sm:text-xl">{d.home.mapMotto}</p>
           <UniversityMap locale={locale} universities={universities} />
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={href(locale, "/career-test")} className="btn-primary">{d.home.ctaTest}</Link>

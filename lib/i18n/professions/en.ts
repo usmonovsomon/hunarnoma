@@ -470,6 +470,27 @@ const en: ProfessionContentBundle = {
         "Heating and water-supply design organizations"
       ],
     },
+    "pharmaceutical-technologist": {
+      name: "Pharmaceutical Production Technologist",
+      tagline: "Manufactures medicine at a plant, not a pharmacy counter",
+      summary: "Runs the industrial production of medicines, vitamins and enzymes — from precise formulation to quality control of every batch.",
+      whatTheyDo: [
+        "Sets up and monitors the technological process of drug manufacturing",
+        "Oversees dosage accuracy and compliance with the formulation",
+        "Checks the quality of raw materials and finished products in the lab",
+        "Implements safety and cleanliness standards (GMP) on the production line"
+      ],
+      skills: ["A strong grounding in chemistry and pharmaceutical technology", "Precision and discipline — a dosage error is dangerous for patients", "Understanding of industrial equipment and automation", "Analytical thinking for quality control", "Responsibility and attention to standards"],
+      schoolSubjects: ["Chemistry", "Biology"],
+      pros: ["A growing sector as Tajikistan builds up its own drug manufacturing", "Stable industrial work with a clear public benefit"],
+      cons: ["Strict cleanliness and discipline requirements on the production floor", "Still fewer jobs than pharmacy-counter work"],
+      workplaces: [
+        "Pharmaceutical plants and production lines",
+        "Drug quality-control laboratories",
+        "Pharmaceutical research-and-production enterprises",
+        "Pharmaceutical technology colleges and teaching production lines"
+      ],
+    },
     "metallurgical-engineer": {
       name: "Metallurgical Engineer",
       tagline: "Runs metal production and processing",
@@ -512,6 +533,27 @@ const en: ProfessionContentBundle = {
         "Sanitary-epidemiological laboratories",
         "Schools and universities (teaching biology)",
         "International conservation and environmental projects"
+      ],
+    },
+    "entomologist": {
+      name: "Entomologist / Plant Protection Specialist",
+      tagline: "Studies insects and protects crops from pests",
+      summary: "Studies insects and other pests, forecasts their outbreaks, and develops ways to protect crops without needlessly harming the ecosystem.",
+      whatTheyDo: [
+        "Identifies pest insect species and assesses their numbers in the field",
+        "Forecasts pest outbreaks based on the season and weather conditions",
+        "Selects biological and chemical methods of plant protection",
+        "Runs quarantine controls to keep new pests out of the country"
+      ],
+      skills: ["Knowledge of entomology and insect biology", "Observation and microscope skills", "Analytical thinking for outbreak forecasting", "Willingness for fieldwork across different seasons", "Care when handling chemical protection agents"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["A narrow but consistently needed specialization — without it, farms lose their harvest", "Combines lab science with a real benefit for agriculture"],
+      cons: ["Work is seasonal and weather-dependent", "A small number of research and expert positions"],
+      workplaces: [
+        "Plant protection and quarantine stations",
+        "Agricultural research institutes",
+        "Farms and agroholdings (consulting)",
+        "The Ministry of Agriculture's quarantine service"
       ],
     },
     "chemist": {
@@ -712,6 +754,153 @@ const en: ProfessionContentBundle = {
         "The medicine quality control agency"
       ],
     },
+    "paramedic": {
+      name: "Paramedic",
+      tagline: "Gives first and emergency aid where there is no doctor",
+      summary: "A mid-level medical role between a nurse and a doctor: makes an initial diagnosis independently, gives emergency care, and works where the nearest hospital is far away.",
+      whatTheyDo: [
+        "Gives first and emergency aid for injuries, poisoning and sudden flare-ups of illness",
+        "Works on ambulance call-outs, sometimes without a doctor on the crew",
+        "Runs the only clinic in a rural feldsher-midwife post (FAP), where no other medic is present",
+        "Decides what can be treated on the spot and who needs an urgent hospital transfer"
+      ],
+      skills: ["Fast, accurate decision-making", "Broad basic knowledge across several fields of medicine at once", "Composure under pressure in emergencies", "Independence — there is often no doctor nearby to ask", "Physical stamina"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["A shorter path into medicine than a university degree — taught at college", "Especially in demand in remote areas, where they are often the only medic around", "Varied practice — from trauma to emergency childbirth"],
+      cons: ["Takes on decisions a doctor would normally make, without a doctor's backup", "Irregular hours and call-outs at any time", "Remote FAPs often lack equipment and medicine"],
+      workplaces: [
+        "Ambulance stations and crews",
+        "Feldsher-midwife posts (FAP) in villages",
+        "Hospital admissions departments",
+        "First-aid stations at workplaces and schools"
+      ],
+    },
+    "social-worker": {
+      name: "Social Worker",
+      tagline: "Helps people in hardship get the support they need",
+      summary: "Works with people who struggle to cope alone — the seriously ill, the elderly, families in crisis — and connects them with the medical, psychological and government support they need.",
+      whatTheyDo: [
+        "Identifies families and individuals who need social or medical support",
+        "Helps arrange benefits, allowances and disability status",
+        "Supports patients with severe or chronic illness alongside doctors and psychologists",
+        "Works with elderly people, orphans and people with disabilities at home or in institutions"
+      ],
+      skills: ["Empathy and the ability to build trust", "Knowledge of social legislation and benefits", "Patience with difficult cases", "Communication skills across age groups", "Organizational skills for paperwork"],
+      schoolSubjects: ["Social studies", "Biology"],
+      pros: ["Work with a real, tangible benefit for a specific person", "A growing field as social services expand in the country", "Variety — can specialize in children, the elderly or people with disabilities"],
+      cons: ["Emotionally heavy work with other people's difficult stories", "Salaries in state social services are still low"],
+      workplaces: [
+        "Social protection centres",
+        "Hospitals and medical-social centres",
+        "Care homes and residential institutions",
+        "International and local NGOs working with vulnerable groups"
+      ],
+    },
+    "medical-equipment-technician": {
+      name: "Medical Equipment Technician",
+      tagline: "Sets up and repairs the devices diagnosis depends on",
+      summary: "Installs, calibrates and repairs medical equipment — from ultrasound and X-ray machines to intensive-care monitors — so doctors can rely on it.",
+      whatTheyDo: [
+        "Installs and configures new medical equipment in hospitals and clinics",
+        "Carries out scheduled maintenance and calibration of devices",
+        "Diagnoses and fixes equipment faults",
+        "Trains medical staff to use equipment correctly and safely"
+      ],
+      skills: ["Knowledge of electronics and medical equipment fundamentals", "Precision — a faulty device means a wrong diagnosis", "Technical thinking and reading schematics", "Responsibility and attention to detail", "Willingness to keep learning new equipment models"],
+      schoolSubjects: ["Physics", "Biology", "Computer science"],
+      pros: ["A rare, narrow specialization with less competition than doctors face", "Works at the intersection of technology and medicine, without direct patient contact", "Demand grows as hospitals update their equipment"],
+      cons: ["Needs constant learning as equipment models change quickly", "Smaller towns don't always have enough modern equipment to use all the skills"],
+      workplaces: [
+        "Hospitals and clinics (engineering/technical services)",
+        "Service centres of medical equipment suppliers",
+        "Private diagnostic centres",
+        "Medical equipment manufacturers and distributors"
+      ],
+    },
+    "dental-therapist": {
+      name: "Dental Therapist",
+      tagline: "Treats teeth and gums where a university-trained dentist isn't available",
+      summary: "Provides dental treatment and oral care after a college programme — working alone where there's no dentist, or alongside one in a clinic.",
+      whatTheyDo: [
+        "Treats cavities, pulpitis and other common dental diseases",
+        "Performs professional cleaning and gum disease prevention",
+        "Extracts simple teeth and gives emergency dental care",
+        "Refers patients to a specialist dentist for complex cases"
+      ],
+      skills: ["Fine motor skills and precision", "Knowledge of dental and jaw anatomy", "Calm manner with patients afraid of treatment", "Care and strict sterilization practice", "Readiness to work independently without a doctor nearby"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["A shorter path into dentistry than a medical university degree", "In demand in smaller towns and districts short on dentists"],
+      cons: ["Fewer options for complex, expensive treatments than a dentist has", "Constant contact with patients in pain or anxious about treatment"],
+      workplaces: [
+        "Dental offices at district polyclinics",
+        "Rural medical outposts",
+        "Private dental clinics (alongside a dentist)",
+        "School and student dental offices"
+      ],
+    },
+    "pharmacy-technician": {
+      name: "Pharmacy Technician",
+      tagline: "Dispenses medicine and advises customers at the pharmacy counter",
+      summary: "Works at a pharmacy: dispenses medicine, advises on dosage and drug interactions, and keeps medications properly stored.",
+      whatTheyDo: [
+        "Dispenses prescription and over-the-counter medicine",
+        "Advises customers on use and alternatives for medicines",
+        "Monitors expiry dates and storage conditions of medicines",
+        "Keeps records and orders stock for the pharmacy"
+      ],
+      skills: ["Knowledge of the medicine range and drug interactions", "Attention to detail — a dispensing error is dangerous", "A friendly, clear manner with customers", "Accuracy in record-keeping", "Basic computer literacy"],
+      schoolSubjects: ["Chemistry", "Biology"],
+      pros: ["A shorter path into pharmacy than a university degree", "Pharmacies exist in every town and district — steady demand", "A more predictable schedule than hospital work"],
+      cons: ["High responsibility when handling medicine and prescriptions", "Monotonous counter work during busy hours"],
+      workplaces: [
+        "State and private pharmacies",
+        "Pharmacy chains and polyclinic pharmacy counters",
+        "Medicine warehouses and distributors",
+        "Pharmaceutical manufacturing plants"
+      ],
+    },
+    "cosmetologist": {
+      name: "Cosmetology Nurse",
+      tagline: "Cares for skin and performs cosmetic procedures",
+      summary: "Performs device-based and injectable skincare procedures under the supervision of a dermatologist-cosmetologist.",
+      whatTheyDo: [
+        "Performs facial cleansing, peels and device-based skincare procedures",
+        "Assists a doctor during injectable cosmetic procedures",
+        "Selects a skincare programme based on the client's skin type",
+        "Keeps instruments sterile and procedures safe"
+      ],
+      skills: ["Knowledge of skin anatomy and physiology", "Precision and attention to detail", "An eye for aesthetics when judging results", "Communication skills — the work is built on client trust", "Compliance with sanitary standards"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Growing demand as the country's beauty industry grows", "Can combine clinic work with a private practice", "A visible result the client can see directly"],
+      cons: ["Needs to keep learning new techniques and devices", "High competition in large cities"],
+      workplaces: [
+        "Cosmetology clinics and offices",
+        "Dermatology and medical centres",
+        "Beauty salons with a medical licence",
+        "Private practice"
+      ],
+    },
+    "medical-tourism-specialist": {
+      name: "Medical & Health Tourism Specialist",
+      tagline: "Arranges treatment and wellness trips for travellers",
+      summary: "Arranges trips for treatment and recovery — selecting sanatoriums, mineral springs and clinics, and guiding the traveller through the whole programme.",
+      whatTheyDo: [
+        "Selects a sanatorium or treatment programme to match a traveller's request",
+        "Arranges accommodation, transfers and support during treatment",
+        "Advises on contraindications together with a doctor",
+        "Promotes the country's wellness routes (mountain resorts, mineral springs)"
+      ],
+      skills: ["Basic knowledge of medicine and balneology", "Organizational skills and attention to detail", "Communication and handling client requests", "Knowledge of the region's tourism infrastructure", "Foreign languages for working with international travellers"],
+      schoolSubjects: ["Biology", "Geography"],
+      pros: ["Work at the intersection of medicine and tourism — still a rare, promising niche", "Tajikistan is rich in mountain resorts and mineral springs"],
+      cons: ["The field is still underdeveloped — not many jobs yet", "Seasonal: demand is higher at certain times of year"],
+      workplaces: [
+        "Sanatoriums and resorts (Khoja Obi Garm, Garmchashma and others)",
+        "Travel companies with wellness programmes",
+        "The Ministry of Health and Tourism",
+        "Private wellness centres"
+      ],
+    },
     "agronomist": {
       name: "Agronomist",
       tagline: "Grows crops and improves yields",
@@ -798,6 +987,195 @@ const en: ProfessionContentBundle = {
         "International irrigation projects (World Bank, Asian Development Bank)",
         "Farmer water-user associations",
         "Water resources design institutes"
+      ],
+    },
+    "soil-scientist": {
+      name: "Soil Scientist / Agrochemist",
+      tagline: "Studies soil so the land yields more",
+      summary: "Analyzes soil composition and fertility, and selects the fertilizers and cultivation methods that raise yields without exhausting the field for the future.",
+      whatTheyDo: [
+        "Takes and analyzes soil samples for acidity, composition and fertility",
+        "Selects fertilizer types and doses for a specific field and crop",
+        "Monitors erosion, salinization and soil depletion",
+        "Advises farms on crop rotation and soil treatment"
+      ],
+      skills: ["Knowledge of soil chemistry and biology", "Analytical thinking when working with lab data", "Attention to detail when analyzing samples", "Willingness to combine fieldwork with lab work", "Understanding of agricultural technology"],
+      schoolSubjects: ["Chemistry", "Biology", "Geography"],
+      pros: ["Directly affects the yield and income of an entire farm", "In demand wherever agronomists are, but with less visible competition"],
+      cons: ["The result isn't visible right away — only after a season or two", "Work quality depends heavily on access to a lab and reagents"],
+      workplaces: [
+        "Agrochemical laboratories",
+        "Farmer and smallholder farms",
+        "Plant protection and agrochemical service stations",
+        "Agricultural research institutes"
+      ],
+    },
+    "landscape-architect": {
+      name: "Landscape Architect",
+      tagline: "Designs parks, public squares and gardens",
+      summary: "Designs and creates green spaces — from a city park or square to a private garden — choosing plants, paths and features so the result is beautiful and practical.",
+      whatTheyDo: [
+        "Develops a planting design for a park, square or private plot",
+        "Selects plants suited to the local climate, soil and seasons",
+        "Plans paths, lighting, rest areas and irrigation",
+        "Oversees planting and follows the project through to completion"
+      ],
+      skills: ["Artistic taste and spatial thinking", "Knowledge of plants and their needs", "Basic drafting and design-software skills", "Balancing aesthetics with practicality (watering, upkeep)", "Communication with clients and a gardening crew"],
+      schoolSubjects: ["Biology", "Fine arts", "Geography"],
+      pros: ["A creative profession with a result the whole city can see", "Growing demand as cities and private homes are landscaped", "Can start with small private commissions and grow a business"],
+      cons: ["A project's result only shows years later, once the planting matures", "Depends on the planting season and the weather's mood"],
+      workplaces: [
+        "City landscaping and urban improvement services",
+        "Design and landscape studios",
+        "Plant nurseries",
+        "Private commissions — gardens and private plots"
+      ],
+    },
+    "plant-breeder": {
+      name: "Plant Breeder",
+      tagline: "Develops new, higher-yielding, hardier plant varieties",
+      summary: "Crosses and selects plants to produce varieties with higher yields and resistance to disease and drought — work that decides what will grow in fields ten years from now.",
+      whatTheyDo: [
+        "Crosses plants and selects the best for yield and resilience",
+        "Trials new varieties on experimental plots under different conditions",
+        "Maintains the purity and quality of the seed stock",
+        "Prepares the documentation to register a new variety"
+      ],
+      skills: ["Deep knowledge of plant genetics and physiology", "Patience — results only show after several years and generations", "Rigor and accuracy across multi-year observations", "Research-minded thinking", "Working with lab and field equipment"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Work with a long-term impact — a new variety feeds farms for decades", "Combines scientific work with practical benefit for agriculture"],
+      cons: ["A very long cycle — years pass from idea to new variety", "A narrow specialization with a limited number of research positions"],
+      workplaces: [
+        "Agricultural and plant-breeding research institutes",
+        "Seed-growing farms and nurseries",
+        "Agricultural universities",
+        "International plant-breeding programmes and projects"
+      ],
+    },
+    "poultry-farmer": {
+      name: "Poultry Farmer",
+      tagline: "Raises chickens, ducks and other domestic birds",
+      summary: "Organizes the housing, feeding and breeding of poultry at a poultry farm or farming operation — from egg incubation to selling the finished product.",
+      whatTheyDo: [
+        "Monitors housing conditions, temperature and ventilation in the poultry house",
+        "Draws up feeding rations for different groups of birds",
+        "Oversees egg incubation and the rearing of chicks",
+        "Monitors the flock's health and catches disease early"
+      ],
+      skills: ["Knowledge of poultry physiology and disease", "Observing the flock's condition", "Organizational skills for handling large numbers of birds", "Willingness for daily care with no days off", "Understanding of modern poultry-farming technology"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Steady demand — eggs and poultry meat are needed every day", "Can start with a small operation of one's own"],
+      cons: ["Daily care with no breaks for weekends or holidays", "Risk of mass flock losses during a disease outbreak"],
+      workplaces: [
+        "Poultry farms and operations",
+        "Hatchery stations",
+        "Farming operations",
+        "Compound feed producers (ration consulting)"
+      ],
+    },
+    "beekeeper": {
+      name: "Beekeeper",
+      tagline: "Keeps bees and produces honey",
+      summary: "Tends bee colonies, monitors their health, and harvests honey, wax and other beekeeping products.",
+      whatTheyDo: [
+        "Tends bee colonies throughout the season",
+        "Monitors bee health and prevents disease and swarming",
+        "Arranges moving hives to good nectar-flow locations",
+        "Harvests, processes and prepares honey and other products for sale"
+      ],
+      skills: ["Knowledge of bee biology and behaviour", "Calm, careful handling of hives", "Observing a colony's condition", "Willingness to travel seasonally for nectar flows", "Basic business skills for selling the product"],
+      schoolSubjects: ["Biology"],
+      pros: ["Can be run as a small operation of one's own", "Growing interest in natural products raises demand for honey"],
+      cons: ["Strongly seasonal work, tied to when plants flower", "Risk of stings and the constant need to monitor colony health"],
+      workplaces: [
+        "A private apiary",
+        "Beekeeping farms and cooperatives",
+        "Beekeeping research stations",
+        "Farmers' markets and beekeeping-product processing"
+      ],
+    },
+    "rabbit-breeder": {
+      name: "Rabbit Breeder",
+      tagline: "Raises rabbits for meat and fur",
+      summary: "Organizes the housing, feeding and breeding of rabbits on a farm — a compact, fast-growing branch of animal husbandry.",
+      whatTheyDo: [
+        "Monitors housing conditions and hygiene in the rabbitry",
+        "Draws up feeding rations for different groups of rabbits",
+        "Organizes mating, kindling and rearing of young rabbits",
+        "Monitors the herd's health and runs disease prevention"
+      ],
+      skills: ["Knowledge of rabbit physiology and disease", "Observation and care in daily handling", "Organizational skills for planning matings and kindlings", "Willingness for daily animal care", "Basic farm record-keeping and planning"],
+      schoolSubjects: ["Biology"],
+      pros: ["Can start with a small operation and gradually expand", "A faster turnover than large livestock"],
+      cons: ["A niche branch where sales aren't always steady", "Rabbits are disease-sensitive and need careful handling"],
+      workplaces: [
+        "Rabbit-breeding farms and operations",
+        "A private smallholding",
+        "Farmers' markets and processing (meat, fur)",
+        "Pedigree rabbit-breeding farms"
+      ],
+    },
+    "agribusiness-manager": {
+      name: "Agribusiness Manager",
+      tagline: "Runs a farm so that it turns a profit",
+      summary: "Combines knowledge of agronomy or animal husbandry with management — planning a farm's work, costing it out and setting up the sale of its products.",
+      whatTheyDo: [
+        "Plans the farm's work: planting, purchasing, work schedules",
+        "Calculates production costs and looks for ways to cut expenses",
+        "Organizes the sale of harvests or livestock products",
+        "Manages a crew of field workers or a farm team"
+      ],
+      skills: ["Knowledge of agronomy or zootechnics fundamentals", "Basic management and accounting skills", "Organizational skills for leading a crew", "Negotiating with suppliers and buyers", "Analytical thinking for calculating profitability"],
+      schoolSubjects: ["Biology", "Mathematics", "Social studies"],
+      pros: ["Combines hands-on agriculture with a management career", "In demand at growing agroholdings and farming cooperatives"],
+      cons: ["Responsible for the whole farm's financial result, not just the harvest", "Work depends on weather and market prices just as much as an agronomist's does"],
+      workplaces: [
+        "Agroholding companies and large farming operations",
+        "Agricultural cooperatives",
+        "The Ministry of Agriculture and its projects",
+        "Companies that buy and process farm produce"
+      ],
+    },
+    "veterinary-pharmacist": {
+      name: "Veterinary Pharmacist",
+      tagline: "Selects and produces medicine for animals",
+      summary: "Specializes in medicine for animals: selects treatments, oversees correct storage and dosage, and works at a veterinary pharmacy or a veterinary drug manufacturer.",
+      whatTheyDo: [
+        "Selects medicines and dosages for treating different kinds of animals",
+        "Advises veterinarians and animal owners on using medication",
+        "Monitors storage conditions and expiry dates of veterinary drugs",
+        "Takes part in quality control of feed supplements and vaccines"
+      ],
+      skills: ["Knowledge of animal pharmacology and physiology", "Precision when working with dosages", "Consulting skills for working with vets and farmers", "Responsibility — a dosage error is dangerous for the animal", "Basic chemistry knowledge"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["A narrow, in-demand niche at the intersection of veterinary medicine and pharmacy", "Can work in a clinic or in drug manufacturing"],
+      cons: ["Fewer openings than for a regular veterinarian", "High responsibility when handling potent drugs"],
+      workplaces: [
+        "Veterinary pharmacies",
+        "Veterinary drug and feed-supplement manufacturers",
+        "Veterinary clinics and stations",
+        "Pet and livestock supply warehouses and distributors"
+      ],
+    },
+    "dendrologist": {
+      name: "Dendrologist",
+      tagline: "Studies trees and shrubs and monitors their health",
+      summary: "Studies the diversity of tree and shrub species, selects species for planting, and monitors the health of mature trees in parks, squares and nurseries.",
+      whatTheyDo: [
+        "Identifies tree and shrub species and assesses their condition",
+        "Selects tree species to suit the climate and conditions of a specific site",
+        "Diagnoses tree diseases and pests and prescribes treatment",
+        "Advises on setting up nurseries and landscaping projects"
+      ],
+      skills: ["Deep knowledge of tree and shrub species", "Observation when diagnosing a tree's condition", "Analytical thinking for matching species to site conditions", "Willingness for fieldwork in any weather", "Patience — trees grow and recover slowly"],
+      schoolSubjects: ["Biology", "Geography"],
+      pros: ["A narrow, expert niche in demand for landscaping and at nurseries", "Work with a long-term result — planted trees grow for decades"],
+      cons: ["Few specialized positions specifically in dendrology", "Results are only visible after years"],
+      workplaces: [
+        "Ornamental plant nurseries",
+        "City landscaping services and botanical gardens",
+        "Forestry operations and nature reserves",
+        "Landscape and design studios (species-selection consulting)"
       ],
     },
     "economist": {
@@ -1491,6 +1869,48 @@ const en: ProfessionContentBundle = {
         "Youth sports schools (DYuSSh)",
         "Sports clubs and fitness centers",
         "National/regional teams by sport"
+      ],
+    },
+    "military-instructor": {
+      name: "Basic Military Training Instructor",
+      tagline: "Prepares students for service and emergency situations",
+      summary: "Teaches basic military training and civil defence at school: drill, first-aid basics, and how to act in emergencies.",
+      whatTheyDo: [
+        "Teaches basic military training and civil defence classes",
+        "Teaches drill and the basics of handling weapons under the curriculum",
+        "Prepares students to respond to fire, earthquakes and other emergencies",
+        "Organizes school competitions and inspections in military-applied skills"
+      ],
+      skills: ["Discipline and personal physical fitness", "Knowledge of basic military affairs and civil defence", "Ability to keep order and discipline in class", "First-aid skills", "Organizational skills for running drills and inspections"],
+      schoolSubjects: ["Physical education", "Social studies"],
+      pros: ["A stable position on every school's timetable", "Can be combined with a PE-teacher role"],
+      cons: ["Students don't always take the subject seriously", "Needs to keep up personal fitness and discipline at all times"],
+      workplaces: [
+        "General schools",
+        "Lyceums and colleges",
+        "Training camps and field exercises",
+        "Local defence-affairs departments"
+      ],
+    },
+    "biology-chemistry-teacher": {
+      name: "Biology & Chemistry Teacher",
+      tagline: "Explains to students how living and non-living nature works",
+      summary: "Teaches biology and chemistry at school, prepares students for exams, and often teaches both subjects together — one of the most common specializations at the country's teacher-training universities.",
+      whatTheyDo: [
+        "Prepares and teaches biology and/or chemistry classes to the school curriculum",
+        "Runs lab and practical sessions",
+        "Prepares students for olympiads and entrance exams",
+        "Grades work and tracks each student's progress"
+      ],
+      skills: ["Deep knowledge of biology and chemistry at school and university level", "Ability to explain complex ideas simply", "Patience and discipline managing a class", "Organizational skills (lab work, equipment)", "Interest in new teaching methods"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Steady demand — the subject exists in every school in the country", "Can be combined with private tutoring", "One of the most accessible specializations, with budget-funded places in many cities"],
+      cons: ["School-teacher pay remains one of the profession's main problems", "A heavy workload — grading and lesson prep outside school hours"],
+      workplaces: [
+        "General schools",
+        "Lyceums and science-track gymnasiums",
+        "Private education centres and tutoring",
+        "Teacher-training colleges and universities (after further study)"
       ],
     },
     "journalist": {

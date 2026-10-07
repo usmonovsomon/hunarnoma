@@ -89,6 +89,7 @@ const en: Dict = {
   },
 
   home: {
+    mapMotto: "Find your place on the map of the future",
     mapHint: "Click a point to see the university. Scroll to zoom, drag to move around the map.",
     mapProfileLink: "University profile →",
     ctaTest: "Not sure what to become — take the test",
