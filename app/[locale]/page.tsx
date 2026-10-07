@@ -50,11 +50,11 @@ export default function Home({ params }: { params: { locale: string } }) {
         <div className="blob right-0 top-10 h-72 w-72 bg-brand-300/30" />
         <div className="container-page relative py-14 sm:py-20">
           <h1 className="sr-only">{d.site.titleDefault}</h1>
-          <div className="mx-auto mb-8 max-w-3xl text-center">
+          <div className="mb-10 flex max-w-3xl gap-4 sm:gap-6">
+            <div className="mt-1 w-1 shrink-0 rounded-full bg-gradient-to-b from-wine-500 via-ember-500 to-brand-500 sm:w-1.5" />
             <p className="gradient-text-flow text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
               {MOTTO[locale]}
             </p>
-            <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-wine-500 via-ember-500 to-brand-500" />
           </div>
           <div className="mb-10 grid gap-4 sm:grid-cols-3">
             {steps.map((s) => (
