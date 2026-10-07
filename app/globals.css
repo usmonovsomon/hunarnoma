@@ -52,6 +52,12 @@ body {
     /* Pomegranate wine → ember → teal, echoing the logo's ikat gradient. */
     @apply bg-gradient-to-r from-wine-600 via-ember-500 to-brand-600 bg-clip-text text-transparent;
   }
+  .gradient-text-flow {
+    /* Same ikat palette, slowly drifting — a quiet bit of life behind a
+       headline, not a banner-ad shimmer. */
+    @apply gradient-text bg-[length:200%_auto];
+    animation: gradient-flow 7s ease-in-out infinite;
+  }
 }
 
 /* Permanent per-marker name label on the university map (components/UniversityMapLeaflet.tsx) — strip Leaflet's default tooltip chrome and use a text halo instead, so labels stay legible over any tile color without a background box. Fixed-width, single line, truncated with an ellipsis — university names run long and a wrapped multi-line label overlaps its neighbours once several pins sit close together. */
@@ -128,4 +134,12 @@ body {
     50% { transform: translateY(-12px); }
   }
   .animate-float { animation: float 7s ease-in-out infinite; }
+
+  @keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-text-flow { animation: none; }
+  }
 }
