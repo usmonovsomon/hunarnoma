@@ -90,6 +90,17 @@ const NOISE = [
 ];
 const isNoise = (l) => NOISE.some((re) => re.test(l));
 const REC = /^\s*(\d+)\s+(\d[\d.]{4,})\s*[-–—]\s*(.*)$/;
+// When BOTH the specialty name and the university name are long enough to
+// wrap, pdftotext's table mode sometimes splits what should be one "rowId
+// code - name   university" line into two: the code and the start of the
+// name/university appear on their own line with no row id, and the row id
+// (plus the rest of the name/university) lands on the NEXT line instead.
+// REC alone can't see either half as a record start, so the whole row used
+// to get silently swallowed as a continuation of whatever record preceded
+// it — losing the row and corrupting its neighbour. CODE_ONLY/ROWID_CONT
+// detect that split pattern so it can be reassembled.
+const CODE_ONLY = /^\s*(\d[\d.]{3,})\s*[-–—]\s*(.+)$/;
+const ROWID_CONT = /^\s*(\d{1,6})\s+(.+)$/;
 
 function stripFields(text) {
   // right-to-left: seats, language, payment, form -> returns fields + leftover middle
@@ -112,6 +123,7 @@ function stripFields(text) {
 function parseRows(lines, cluster) {
   const rows = [];
   let buf = null;
+  let pending = null; // { code, nameStart } — a headless "code - name" line seen, its row id not found yet
   const flush = () => {
     if (!buf) return;
     let f = stripFields(dehyph(buf.first));
@@ -137,10 +149,23 @@ function parseRows(lines, cluster) {
   for (const raw of lines) {
     const l = raw.replace(/\s+$/, "");
     if (!l.trim()) continue; // blank lines separate main row from its wrapped continuation — do NOT flush
-    if (isNoise(l)) { flush(); continue; }
+    if (isNoise(l)) { flush(); pending = null; continue; }
     const m = l.match(REC);
-    if (m) { flush(); buf = { rowId: +m[1], code: m[2].replace(/\.$/, ""), first: m[3], cont: [] }; }
-    else if (buf) buf.cont.push({ raw: l, text: l.trim() });
+    if (m) { flush(); pending = null; buf = { rowId: +m[1], code: m[2].replace(/\.$/, ""), first: m[3], cont: [] }; continue; }
+    if (pending) {
+      const rm = l.match(ROWID_CONT);
+      if (rm) {
+        buf = { rowId: +rm[1], code: pending.code, first: norm(pending.nameStart + " " + rm[2]), cont: [] };
+        pending = null;
+        continue;
+      }
+      // still no row id on this line — the headless code line itself wrapped further
+      pending.nameStart = norm(pending.nameStart + " " + l.trim());
+      continue;
+    }
+    const co = l.match(CODE_ONLY);
+    if (co) { flush(); pending = { code: co[1].replace(/\.$/, ""), nameStart: co[2] }; continue; }
+    if (buf) buf.cont.push({ raw: l, text: l.trim() });
   }
   flush();
   return rows;
@@ -351,6 +376,27 @@ const NAME_OVERRIDES = {
   "131030102": "Математика (научно-педагогическая деятельность)",
   "131040103": "Физика (научно-педагогическая деятельность)",
   "131050101": "Химия (научно-производственная деятельность)",
+  // rows recovered by the CODE_ONLY/ROWID_CONT fix above (row id split onto its
+  // own line, away from the code+name-start, when both the specialty name and
+  // the university name needed to wrap at once) — the auto common-prefix-word
+  // extraction interleaves the still-wrapping university name into these, so
+  // give the real name by hand same as the rest of this table.
+  "140030105": "Инструментальные средства и технологии проектирования интеллектуальных систем",
+  "125010800": "Бухгалтерский учет, анализ и аудит",
+  "103010601": "Изобразительное искусство. Народные, художественные промыслы (ТЭилиЭСН)",
+  "123011201": "Музейное дело и охрана историко-культурного наследия",
+  "123011204": "Музейное дело и охрана историко-культурного наследия (культурное наследие и туризм)",
+  "124010312": "Правовое регулирование финансов и кредита",
+  "1950108": "Эксплуатация воздушного транспорта, управление воздушным движением (по направлениям)",
+  "137040201": "Техническая эксплуатация авиационного оборудования (радиоэлектронное оборудование) (СФГАБГААиТТУ)",
+  "12301110107": "Библиотековедение и библиография по направлениям (научно-методическая деятельность библиотек)",
+  "157010101": "Промышленная экология и рациональное использование природных ресурсов",
+  "1740602": "Техническое обеспечение процессов механизации и переработки сельскохозяйственной продукции",
+  "123010204": "Лингвистическое обеспечение межкультурных коммуникаций (внешнеполитические отношения)",
+  "1230102": "Лингвистическое обеспечение межкультурных коммуникаций",
+  "123010202": "Лингвистическое обеспечение межкультурных коммуникаций (международный туризм)",
+  "123010203": "Лингвистическое обеспечение межкультурных коммуникаций",
+  "123010205": "Лингвистическое обеспечение межкультурных коммуникаций (внешнеэкономические отношения)",
 };
 
 // merge auto-generated reconstruction overrides (manual entries win on conflict)

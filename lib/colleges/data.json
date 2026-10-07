@@ -4,9 +4,9 @@
   "sourceUrl": "https://ntc.tj/ru/abiturientu/obrazovatelnye-uchrezhdeniya-vysshego-i-srednego-professionalnogo-obrazovaniya.html?view=article&id=66",
   "totals": {
     "colleges": 74,
-    "specialties": 151,
-    "programs": 1357,
-    "seats": 27699
+    "specialties": 153,
+    "programs": 1364,
+    "seats": 27813
   },
   "colleges": [
     {
@@ -460,9 +460,6 @@
       "address": "город Худжанд, улица Джуры Зокира, 29",
       "phone": "(3422) 6-32-81",
       "languages": [
-        "латный таджикский 5",
-        "ный (1500) таджикский 15",
-        "ный (2000) таджикский 10",
         "русский",
         "таджикский"
       ],
@@ -1221,11 +1218,12 @@
       ],
       "clusters": [
         1,
-        2
+        2,
+        5
       ],
-      "specialtyCount": 6,
-      "programCount": 15,
-      "totalSeats": 135
+      "specialtyCount": 7,
+      "programCount": 18,
+      "totalSeats": 165
     },
     {
       "id": "c52",
@@ -1262,11 +1260,8 @@
       "address": "город Душанбе, улица Айни, 73",
       "phone": "(37) 226-09-55",
       "languages": [
-        "английский",
-        "атный таджикский 10",
         "русский",
-        "таджикский",
-        "ый (2800) таджикский 54"
+        "таджикский"
       ],
       "forms": [
         "дневная",
@@ -1279,9 +1274,9 @@
         4,
         5
       ],
-      "specialtyCount": 13,
-      "programCount": 45,
-      "totalSeats": 747
+      "specialtyCount": 12,
+      "programCount": 46,
+      "totalSeats": 797
     },
     {
       "id": "c54",
@@ -1350,8 +1345,8 @@
         2
       ],
       "specialtyCount": 9,
-      "programCount": 31,
-      "totalSeats": 214
+      "programCount": 32,
+      "totalSeats": 224
     },
     {
       "id": "c57",
@@ -1622,8 +1617,8 @@
         5
       ],
       "specialtyCount": 7,
-      "programCount": 19,
-      "totalSeats": 226
+      "programCount": 20,
+      "totalSeats": 240
     },
     {
       "id": "c68",
@@ -1771,13 +1766,11 @@
       "address": "город Левакант",
       "phone": "",
       "languages": [
-        "бесплатный таджикский 4",
-        "платный (1200) таджикский 16",
         "таджикский"
       ],
       "forms": [
-        "заочная",
-        "дневная"
+        "дневная",
+        "заочная"
       ],
       "clusters": [
         1,
@@ -1786,8 +1779,8 @@
         4
       ],
       "specialtyCount": 21,
-      "programCount": 53,
-      "totalSeats": 582
+      "programCount": 54,
+      "totalSeats": 592
     }
   ],
   "specialties": [
@@ -2966,29 +2959,26 @@
           "seats": 10
         },
         {
-          "collegeId": "c53",
+          "collegeId": "c67",
           "form": "дневная",
           "paid": true,
           "tuition": 1475,
-          "language": "английский, атный таджикский 10, ый (2800) таджикский 54",
+          "language": "английский",
           "seats": 14
         }
       ],
       "collegeIds": [
-        "c67",
-        "c53"
+        "c67"
       ],
       "stats": {
-        "colleges": 2,
+        "colleges": 1,
         "offerings": 2,
         "totalSeats": 24,
         "freeSeats": 0,
         "tuitionMin": 1475,
         "tuitionMax": 1475,
         "languages": [
-          "английский",
-          "атный таджикский 10",
-          "ый (2800) таджикский 54"
+          "английский"
         ],
         "forms": [
           "дневная"
@@ -4450,6 +4440,22 @@
       "cluster": 3,
       "offerings": [
         {
+          "collegeId": "c53",
+          "form": "дневная",
+          "paid": true,
+          "tuition": null,
+          "language": "таджикский",
+          "seats": 10
+        },
+        {
+          "collegeId": "c53",
+          "form": "дневная",
+          "paid": true,
+          "tuition": 2800,
+          "language": "таджикский",
+          "seats": 54
+        },
+        {
           "collegeId": "c66",
           "form": "дневная",
           "paid": true,
@@ -4531,23 +4537,23 @@
         }
       ],
       "collegeIds": [
+        "c53",
         "c66",
         "c7",
         "c8",
-        "c9",
-        "c53"
+        "c9"
       ],
       "stats": {
         "colleges": 5,
-        "offerings": 10,
-        "totalSeats": 135,
+        "offerings": 12,
+        "totalSeats": 199,
         "freeSeats": 0,
         "tuitionMin": 900,
         "tuitionMax": 2800,
         "languages": [
+          "таджикский",
           "русский",
-          "английский",
-          "таджикский"
+          "английский"
         ],
         "forms": [
           "дневная"
@@ -12016,7 +12022,7 @@
           "form": "дневная",
           "paid": true,
           "tuition": 3820,
-          "language": "таджикский, латный таджикский 5, ный (2000) таджикский 10, ный (1500) таджикский 15",
+          "language": "таджикский",
           "seats": 15
         }
       ],
@@ -12034,10 +12040,7 @@
         "tuitionMin": 3000,
         "tuitionMax": 6600,
         "languages": [
-          "таджикский",
-          "латный таджикский 5",
-          "ный (2000) таджикский 10",
-          "ный (1500) таджикский 15"
+          "таджикский"
         ],
         "forms": [
           "дневная"
@@ -14132,31 +14135,28 @@
           "seats": 3
         },
         {
-          "collegeId": "c74",
+          "collegeId": "c56",
           "form": "заочная",
           "paid": true,
           "tuition": 2000,
-          "language": "таджикский, бесплатный таджикский 4, платный (1200) таджикский 16",
+          "language": "таджикский",
           "seats": 10
         }
       ],
       "collegeIds": [
         "c50",
         "c55",
-        "c56",
-        "c74"
+        "c56"
       ],
       "stats": {
-        "colleges": 4,
+        "colleges": 3,
         "offerings": 9,
         "totalSeats": 78,
         "freeSeats": 0,
         "tuitionMin": 2000,
         "tuitionMax": 2850,
         "languages": [
-          "таджикский",
-          "бесплатный таджикский 4",
-          "платный (1200) таджикский 16"
+          "таджикский"
         ],
         "forms": [
           "дневная",
@@ -16131,6 +16131,47 @@
       }
     },
     {
+      "code": "253013203",
+      "slug": "253013203",
+      "name": "Автоматизация технологических процессов и производств химической промышленности",
+      "cluster": 1,
+      "offerings": [
+        {
+          "collegeId": "c74",
+          "form": "дневная",
+          "paid": true,
+          "tuition": null,
+          "language": "таджикский",
+          "seats": 4
+        },
+        {
+          "collegeId": "c74",
+          "form": "дневная",
+          "paid": true,
+          "tuition": 1200,
+          "language": "таджикский",
+          "seats": 16
+        }
+      ],
+      "collegeIds": [
+        "c74"
+      ],
+      "stats": {
+        "colleges": 1,
+        "offerings": 2,
+        "totalSeats": 20,
+        "freeSeats": 0,
+        "tuitionMin": 1200,
+        "tuitionMax": 1200,
+        "languages": [
+          "таджикский"
+        ],
+        "forms": [
+          "дневная"
+        ]
+      }
+    },
+    {
       "code": "256020131",
       "slug": "256020131",
       "name": "Геодезия в строительстве",
@@ -16178,6 +16219,56 @@
         "totalSeats": 32,
         "freeSeats": 0,
         "tuitionMin": 1717,
+        "tuitionMax": 2000,
+        "languages": [
+          "таджикский"
+        ],
+        "forms": [
+          "дневная",
+          "заочная"
+        ]
+      }
+    },
+    {
+      "code": "257010101",
+      "slug": "257010101",
+      "name": "Промышленная экология и рациональное использование природных ресурсов",
+      "cluster": 5,
+      "offerings": [
+        {
+          "collegeId": "c51",
+          "form": "дневная",
+          "paid": true,
+          "tuition": null,
+          "language": "таджикский",
+          "seats": 5
+        },
+        {
+          "collegeId": "c51",
+          "form": "дневная",
+          "paid": true,
+          "tuition": 2000,
+          "language": "таджикский",
+          "seats": 10
+        },
+        {
+          "collegeId": "c51",
+          "form": "заочная",
+          "paid": true,
+          "tuition": 1500,
+          "language": "таджикский",
+          "seats": 15
+        }
+      ],
+      "collegeIds": [
+        "c51"
+      ],
+      "stats": {
+        "colleges": 1,
+        "offerings": 3,
+        "totalSeats": 30,
+        "freeSeats": 0,
+        "tuitionMin": 1500,
         "tuitionMax": 2000,
         "languages": [
           "таджикский"

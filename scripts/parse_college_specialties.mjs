@@ -41,6 +41,12 @@ const NOISE = [
 ];
 const isNoise = (l) => NOISE.some((re) => re.test(l));
 const REC = /^\s*(\d+)\s+(\d[\d.]{4,})\s*[-–—]\s*(.*)$/;
+// See scripts/parse_ntc.mjs for why this exists: when both the specialty name
+// and the institution name need to wrap, the row id sometimes lands on a line
+// of its own, separate from "code - name" — REC alone misses both halves and
+// silently swallows the row into a neighbouring record.
+const CODE_ONLY = /^\s*(\d[\d.]{3,})\s*[-–—]\s*(.+)$/;
+const ROWID_CONT = /^\s*(\d{1,6})\s+(.+)$/;
 
 function stripFields(text) {
   let s = norm(text), out = {};
@@ -62,6 +68,7 @@ function stripFields(text) {
 function parseRows(lines, cluster) {
   const rows = [];
   let buf = null;
+  let pending = null; // { code, nameStart } — a headless "code - name" line seen, its row id not found yet
   const flush = () => {
     if (!buf) return;
     let f = stripFields(dehyph(buf.first));
@@ -85,10 +92,22 @@ function parseRows(lines, cluster) {
   for (const raw of lines) {
     const l = raw.replace(/\s+$/, "");
     if (!l.trim()) continue;
-    if (isNoise(l)) { flush(); continue; }
+    if (isNoise(l)) { flush(); pending = null; continue; }
     const m = l.match(REC);
-    if (m) { flush(); buf = { rowId: +m[1], code: m[2].replace(/\.$/, ""), first: m[3], cont: [] }; }
-    else if (buf) buf.cont.push({ raw: l, text: l.trim() });
+    if (m) { flush(); pending = null; buf = { rowId: +m[1], code: m[2].replace(/\.$/, ""), first: m[3], cont: [] }; continue; }
+    if (pending) {
+      const rm = l.match(ROWID_CONT);
+      if (rm) {
+        buf = { rowId: +rm[1], code: pending.code, first: norm(pending.nameStart + " " + rm[2]), cont: [] };
+        pending = null;
+        continue;
+      }
+      pending.nameStart = norm(pending.nameStart + " " + l.trim());
+      continue;
+    }
+    const co = l.match(CODE_ONLY);
+    if (co) { flush(); pending = { code: co[1].replace(/\.$/, ""), nameStart: co[2] }; continue; }
+    if (buf) buf.cont.push({ raw: l, text: l.trim() });
   }
   flush();
   return rows;
@@ -224,6 +243,9 @@ const NAME_OVERRIDES = {
   "2790136": "Физиотерапия",
   "2800151": "Использование медицинской техники и оборудования",
   "2860101": "Работы по социальной защите",
+  // recovered by the CODE_ONLY/ROWID_CONT fix above — see parse_ntc.mjs for
+  // why the auto name extraction needs a hand override for these.
+  "253013203": "Автоматизация технологических процессов и производств химической промышленности",
 };
 
 const byCode = {};
