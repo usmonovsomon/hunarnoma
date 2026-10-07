@@ -23,9 +23,9 @@ export default function Nav({ locale }: { locale: Locale }) {
             HunarNoma<span className="text-brand-600">.</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft hover:bg-slate-100 hover:text-ink">
+            <Link key={l.href} href={l.href} className="whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-ink-soft hover:bg-slate-100 hover:text-ink">
               {l.label}
             </Link>
           ))}
@@ -37,7 +37,7 @@ export default function Nav({ locale }: { locale: Locale }) {
           </Link>
         </div>
       </div>
-      <nav className="container-page flex gap-1 overflow-x-auto pb-2 md:hidden">
+      <nav className="container-page flex gap-1 overflow-x-auto pb-2 lg:hidden">
         {links.map((l) => (
           <Link key={l.href} href={l.href} className="whitespace-nowrap rounded-lg px-3 py-1.5 text-sm text-ink-soft hover:bg-slate-100">
             {l.label}
