@@ -50,11 +50,13 @@ export default function Home({ params }: { params: { locale: string } }) {
         <div className="blob right-0 top-10 h-72 w-72 bg-brand-300/30" />
         <div className="container-page relative py-14 sm:py-20">
           <h1 className="sr-only">{d.site.titleDefault}</h1>
-          <div className="mx-auto mb-6 max-w-2xl text-center">
-            <p className="gradient-text-flow text-base font-bold leading-snug tracking-tight sm:text-lg">
+          <div className="mx-auto mb-8 max-w-3xl text-center">
+            <p className="gradient-text-flow text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
               {MOTTO[locale]}
             </p>
+            <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-wine-500 via-ember-500 to-brand-500" />
           </div>
+          <p className="mb-3 text-center text-sm font-bold tracking-tight text-brand-700">{d.home.mapMotto}</p>
           <UniversityMap locale={locale} universities={universities} />
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={href(locale, "/career-test")} className="btn-primary">{d.home.ctaTest}</Link>
