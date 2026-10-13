@@ -44,6 +44,34 @@ export default function Home({ params }: { params: { locale: string } }) {
 
   return (
     <div>
+
+      <section className="container-page py-8">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-extrabold tracking-tight">{d.home.professionsTitle}</h2>
+            <p className="mt-1 text-ink-soft">{d.home.professionsLead}</p>
+          </div>
+          <Link href={href(locale, "/professions")} className="text-sm font-semibold text-brand-600 hover:underline">
+            {d.home.professionsCta}
+          </Link>
+        </div>
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {homeProfessions.map(({ p, text }) => (
+              <ProfessionCard
+                  key={p.id}
+                  locale={locale}
+                  dict={d}
+                  slug={p.slug}
+                  fieldId={p.fieldId}
+                  name={text.name}
+                  tagline={text.tagline}
+                  specialtyCount={specialtiesForProfession(p).length}
+                  international={p.international}
+              />
+          ))}
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="blob -left-24 top-0 h-72 w-72 bg-brand-200/40" />
@@ -85,32 +113,7 @@ export default function Home({ params }: { params: { locale: string } }) {
       </section>
 
       {/* Professions — the main entry point of the product */}
-      <section className="container-page py-8">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-extrabold tracking-tight">{d.home.professionsTitle}</h2>
-            <p className="mt-1 text-ink-soft">{d.home.professionsLead}</p>
-          </div>
-          <Link href={href(locale, "/professions")} className="text-sm font-semibold text-brand-600 hover:underline">
-            {d.home.professionsCta}
-          </Link>
-        </div>
-        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {homeProfessions.map(({ p, text }) => (
-            <ProfessionCard
-              key={p.id}
-              locale={locale}
-              dict={d}
-              slug={p.slug}
-              fieldId={p.fieldId}
-              name={text.name}
-              tagline={text.tagline}
-              specialtyCount={specialtiesForProfession(p).length}
-              international={p.international}
-            />
-          ))}
-        </div>
-      </section>
+
 
       {/* How many professions live in each field */}
       <ProfessionsByFieldChart locale={locale} />
