@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import "leaflet/dist/leaflet.css";
@@ -63,6 +64,7 @@ export default function LocaleLayout({
         <Nav locale={locale} />
         <main>{children}</main>
         <Footer locale={locale} />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
