@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ProfessionFieldColor, ProfessionFieldId } from "@/lib/professions/base";
 import { collator, fmtNum, type Dict, type Locale } from "@/lib/i18n";
 import { ProfessionCard } from "@/components/professions";
@@ -30,16 +30,20 @@ export default function ProfessionCatalog({
   dict,
   fields,
   items,
-  initialField = "",
 }: {
   locale: Locale;
   dict: Dict;
   fields: FieldChip[];
   items: ProfessionItem[];
-  initialField?: ProfessionFieldId | "";
 }) {
   const [q, setQ] = useState("");
-  const [fieldId, setFieldId] = useState<ProfessionFieldId | "">(initialField);
+  const [fieldId, setFieldId] = useState<ProfessionFieldId | "">("");
+
+  // Read ?field= on the client so the page itself stays statically generated.
+  useEffect(() => {
+    const field = new URLSearchParams(window.location.search).get("field");
+    if (field && fields.some((f) => f.id === field)) setFieldId(field as ProfessionFieldId);
+  }, [fields]);
 
   const filtered = useMemo(() => {
     const f = fold(q.trim());
