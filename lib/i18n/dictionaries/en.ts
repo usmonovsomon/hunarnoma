@@ -14,6 +14,11 @@ const en: Dict = {
     takeTest: "Take the test",
     home: "Home",
     switchLanguage: "Choose language",
+    menu: "Menu",
+    close: "Close",
+    installApp: "Install the app",
+    installAppHint: "Works offline and opens from your home screen",
+    installIosHint: "Tap “Share” at the bottom of Safari and choose “Add to Home Screen”",
   },
 
   units: {
@@ -133,6 +138,7 @@ const en: Dict = {
       "A catalog of professions: what a specialist does, what skills it takes, and which university programs in Tajikistan teach it.",
     searchPlaceholder: "Search professions — e.g. “doctor”, “lawyer”, “developer”",
     allFields: "All fields",
+    fieldFilter: "Field",
     found: "Professions found:",
     empty: "Nothing found. Try a different query or clear the field filter.",
     editorialNote:
@@ -197,6 +203,7 @@ const en: Dict = {
     sortSeats: "By number of seats",
     sortName: "Alphabetically",
     allClusters: "All clusters",
+    clusterFilter: "Cluster",
     found: "Programs found:",
     empty: "Nothing found. Try a different query or clear the cluster filter.",
   },

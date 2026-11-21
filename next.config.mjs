@@ -42,6 +42,11 @@ const nextConfig = {
         source: "/:file(.*\\.(?:png|jpg|jpeg|webp|svg|ico))",
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
+      {
+        // The browser must always see the latest worker, or a fix to it would take a day to roll out.
+        source: "/sw.js",
+        headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }],
+      },
     ];
   },
 };

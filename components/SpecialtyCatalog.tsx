@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { ClusterColor } from "@/lib/ntc/content";
 import { collator, fmtNum, href, plural, type Dict, type Locale } from "@/lib/i18n";
+import ChipFilter from "@/components/ChipFilter";
 
 export interface SpecItem {
   code: string;
@@ -83,16 +84,15 @@ export default function SpecialtyCatalog({
           </select>
         </div>
         {showClusterFilter && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button onClick={() => setCluster(0)} className={chip(cluster === 0)}>
-              {dict.specialtiesPage.allClusters}
-            </button>
-            {clusters.map((c) => (
-              <button key={c.id} onClick={() => setCluster(c.id)} className={chip(cluster === c.id)}>
-                {c.emoji} {c.name}
-              </button>
-            ))}
-          </div>
+          <ChipFilter<number>
+            value={cluster}
+            onChange={setCluster}
+            allValue={0}
+            allLabel={dict.specialtiesPage.allClusters}
+            options={clusters.map((c) => ({ value: c.id, label: c.name, emoji: c.emoji }))}
+            title={dict.specialtiesPage.clusterFilter}
+            closeLabel={dict.nav.close}
+          />
         )}
       </div>
 
@@ -127,10 +127,4 @@ export default function SpecialtyCatalog({
       )}
     </div>
   );
-}
-
-function chip(active: boolean) {
-  return `rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-    active ? "bg-brand-600 text-white shadow-sm" : "bg-white text-ink-soft ring-1 ring-inset ring-slate-200 hover:bg-slate-100"
-  }`;
 }

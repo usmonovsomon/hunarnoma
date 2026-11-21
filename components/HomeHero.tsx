@@ -28,6 +28,8 @@ function ArrowRight({ className = "" }: { className?: string }) {
   );
 }
 
+const gluePreposition = (text: string) => text.replace(/ (\S+)$/, " $1");
+
 function Logo({ size = "sm" }: { size?: "xs" | "sm" }) {
   const box = size === "xs" ? "h-3.5 w-3.5" : "h-5 w-5";
   const text = size === "xs" ? "text-[8px]" : "text-[11px]";
@@ -67,16 +69,20 @@ export default function HomeHero({
 
       <div className="container-page grid grid-cols-1 items-center gap-12 pt-14 sm:pt-20 lg:min-h-[680px] lg:grid-cols-[1fr_1.1fr] lg:gap-6 lg:pt-16">
         <div className="relative z-10 min-w-0 lg:pb-16 lg:pr-6">
-          <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-            {dict.home.heroTitle} <span className="gradient-text-flow">{dict.home.heroAccent}</span>
+          {/* The accent always gets its own line, the rest is balanced, and the trailing
+              preposition ("с" / "бо" / "with") is glued to the word before it — otherwise
+              the longer tj/en titles leave it stranded on a line of its own. */}
+          <h1 className="text-[2.75rem] font-extrabold leading-[1.04] tracking-tight text-ink sm:text-6xl lg:text-[4.25rem]">
+            <span className="block text-balance">{gluePreposition(dict.home.heroTitle)}</span>
+            <span className="gradient-text-flow block">{dict.home.heroAccent}</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-ink-soft sm:text-xl">{subtitle}</p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <p className="mt-6 max-w-xl text-pretty text-lg font-medium leading-relaxed text-ink-soft sm:text-xl">{subtitle}</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href={href(locale, "/career-test")}
-              className="btn-primary group whitespace-normal rounded-2xl px-6 py-4 text-base"
+              className="btn-primary group whitespace-normal text-balance rounded-2xl px-6 py-4 text-center text-base leading-snug"
             >
-              {dict.home.ctaTest}
+              {dict.home.ctaTest.replace(" — ", " — ")}
               <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link href={href(locale, "/professions")} className="btn-ghost rounded-2xl bg-white/70 px-6 py-4 text-base backdrop-blur">

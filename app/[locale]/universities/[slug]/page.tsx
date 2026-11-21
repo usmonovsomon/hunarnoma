@@ -119,7 +119,32 @@ export default function UniversityPage({ params }: { params: { locale: string; s
                   <ClusterDot locale={locale} id={cid} /> {m?.emoji} {m?.name}
                   <span className="font-normal text-ink-muted">· {items.length}</span>
                 </h3>
-                <div className="mt-3 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+                <ul className="mt-3 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white sm:hidden">
+                  {items.map(({ specialty, offerings }) => {
+                    const forms = [...new Set(offerings.map((o) => o.form).filter(Boolean))];
+                    const langs = parseLanguages(offerings.map((o) => o.language).join(", "));
+                    return (
+                      <li key={specialty.code}>
+                        <Link href={href(locale, `/specialties/${specialty.code}`)} className="block px-4 py-3 active:bg-slate-50">
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="font-semibold leading-snug text-ink">{specialtyName(locale, specialty.name)}</span>
+                            <span className="shrink-0 rounded-full bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-700">
+                              {seatSum(offerings)} {d.labels.seatsShort}
+                            </span>
+                          </div>
+                          <div className="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-ink-soft">
+                            <span>{forms.map((f) => formLabel(d, f)).join(", ")}</span>
+                            <span className="text-ink-muted">·</span>
+                            <span>{languageList(d, langs)}</span>
+                            <span className="text-ink-muted">·</span>
+                            <span>{tuitionOf(locale, d, offerings)}</span>
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="mt-3 hidden overflow-x-auto rounded-2xl border border-slate-200 bg-white sm:block">
                   <table className="w-full min-w-[560px] text-sm">
                     <thead>
                       <tr className="border-b border-slate-100 text-left text-xs text-ink-muted">
