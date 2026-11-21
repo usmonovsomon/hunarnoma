@@ -5,7 +5,7 @@ export default function Footer({ locale }: { locale: Locale }) {
   const d = getDict(locale);
 
   return (
-    <footer className="mt-20 border-t border-slate-200 bg-white">
+    <footer className="mt-20 border-t border-slate-200 bg-white [main:has(>[data-bleed]:last-child)+&]:mt-0">
       <div className="container-page grid gap-8 py-12 md:grid-cols-4">
         <div>
           <div className="text-lg font-extrabold">HunarNoma<span className="text-brand-600">.</span></div>
