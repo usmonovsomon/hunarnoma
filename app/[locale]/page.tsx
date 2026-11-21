@@ -9,8 +9,9 @@ import { SpecialtyCard, SourceNote } from "@/components/ntc";
 import { ProfessionCard } from "@/components/professions";
 import { ProfessionsByFieldChart } from "@/components/ProfessionsByFieldChart";
 import UniversityMap from "@/components/UniversityMap";
+import HomeHero from "@/components/HomeHero";
 
-// The hero motto, shown in the current site locale above the university map.
+// The hero subtitle, shown in the current site locale.
 const MOTTO: Record<Locale, string> = {
   ru: "Профессия остаётся с тобой на всю жизнь. HunarNoma поможет выбрать её осознанно. Здесь 123 профессии, суть каждой работы и путь к ней: что изучать и где.",
   tj: "Ҳунар тамоми умр бо ту мемонад. HunarNoma кӯмак мекунад, ки онро огоҳона интихоб кунӣ. Дар ин ҷо 123 касб, моҳияти ҳар кор ва роҳи расидан ба он ҳаст: чӣ хондан ва дар куҷо.",
@@ -45,18 +46,33 @@ export default function Home({ params }: { params: { locale: string } }) {
   return (
     <div>
 
-      {/* Hero */}
+      <HomeHero
+        locale={locale}
+        dict={d}
+        subtitle={MOTTO[locale]}
+        professionsCount={PROFESSIONS.length}
+        featured={
+          homeProfessions[0]
+            ? {
+                fieldId: homeProfessions[0].p.fieldId,
+                name: homeProfessions[0].text.name,
+                tagline: homeProfessions[0].text.tagline,
+                whatTheyDo: homeProfessions[0].text.whatTheyDo,
+                schoolSubjects: homeProfessions[0].text.schoolSubjects,
+              }
+            : null
+        }
+        professions={homeProfessions.map(({ p, text }) => ({
+          slug: p.slug,
+          fieldId: p.fieldId,
+          name: text.name,
+          tagline: text.tagline,
+          specialtyCount: specialtiesForProfession(p).length,
+        }))}
+      />
+
       <section className="relative overflow-hidden">
-        <div className="blob -left-24 top-0 h-72 w-72 bg-brand-200/40" />
-        <div className="blob right-0 top-10 h-72 w-72 bg-brand-300/30" />
-        <div className="container-page relative py-14 sm:py-20">
-          <h1 className="sr-only">{d.site.titleDefault}</h1>
-          <div className="mb-10 flex max-w-3xl gap-4 sm:gap-6">
-            <div className="mt-1 w-1 shrink-0 rounded-full bg-gradient-to-b from-wine-500 via-ember-500 to-brand-500 sm:w-1.5" />
-            <p className="gradient-text-flow text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
-              {MOTTO[locale]}
-            </p>
-          </div>
+        <div className="container-page relative py-14 sm:py-16">
           <div className="mb-10 grid gap-4 sm:grid-cols-3">
             {steps.map((s) => (
               <div key={s.n} className="card p-5">
@@ -96,10 +112,6 @@ export default function Home({ params }: { params: { locale: string } }) {
 
           <p className="mb-3 text-center text-sm font-bold tracking-tight text-brand-700">{d.home.mapMotto}</p>
           <UniversityMap locale={locale} universities={universities} />
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link href={href(locale, "/career-test")} className="btn-primary">{d.home.ctaTest}</Link>
-            <Link href={href(locale, "/professions")} className="btn-ghost">{d.home.ctaCatalog}</Link>
-          </div>
 
           {/* Stat row — commented out for now, felt like it didn't fit here; bring back once we
               know what this section should actually lead with. */}
