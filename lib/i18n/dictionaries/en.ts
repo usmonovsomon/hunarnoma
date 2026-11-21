@@ -10,6 +10,7 @@ const en: Dict = {
     colleges: "Colleges",
     clusters: "Clusters",
     mentorship: "Mentorship",
+    about: "About the project",
     careerTest: "Career test",
     takeTest: "Take the test",
     home: "Home",
@@ -97,6 +98,7 @@ const en: Dict = {
   home: {
     heroTitle: "Choose your profession with",
     heroAccent: "HunarNoma",
+    heroAboutPill: "About the project",
     mapMotto: "Find your place on the map of the future",
     mapHint: "Click a point to see the university. Scroll to zoom, drag to move around the map.",
     mapProfileLink: "University profile →",
@@ -155,6 +157,18 @@ const en: Dict = {
     statsUniversities: "universities train doctors",
     statsColleges: "colleges train nurses and paramedics",
     seeAllLink: "See all professions →",
+  },
+
+  aboutPage: {
+    title: "About the project",
+    metaDescription: "HunarNoma is a non-profit platform that helps young people in Tajikistan find the right career and the right place to study.",
+    paragraphs: [
+      "Hunarnoma was started by two brothers, Khurshed and Somon Usmonov.",
+      "We grew up in Tajikistan and know how hard it can be to decide what to study or which career to follow. Many young people make that choice without much information, and we wanted to change that.",
+      "Hunarnoma is a non-profit platform built to help young Tajiks find the right path. But it’s not just an encyclopedia of colleges and professions. It’s an interactive platform that helps you figure out which career fits you, which college can get you there, and what jobs will look like in the future.",
+      "This is just the beginning. We’re working on a mentorship program and new AI tools, and we’ll share more soon.",
+      "Thank you for being here. We hope Hunarnoma helps you find your way.",
+    ],
   },
 
   mentorshipPage: {
@@ -271,7 +285,7 @@ const en: Dict = {
 
   collegeSource: {
     label: "NTC registry of secondary vocational institutions and intake plan",
-    note: "Not every college has programs listed — the NTC intake plan for ССУЗ covers only part of them.",
+    note: "Not every college has programs listed — the NTC intake plan for colleges covers only some of them.",
   },
 
   clusterPage: {

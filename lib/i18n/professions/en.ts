@@ -754,6 +754,198 @@ const en: ProfessionContentBundle = {
         "The medicine quality control agency"
       ],
     },
+    "pediatrician": {
+      name: "Pediatrician",
+      tagline: "Treats children from birth to adolescence",
+      summary: "Monitors a child's development, diagnoses and treats childhood illnesses — from a cold to congenital conditions.",
+      whatTheyDo: [
+        "Carries out routine check-ups and tracks a child's growth and development",
+        "Gives vaccinations according to the immunization schedule",
+        "Diagnoses and treats childhood illnesses, adjusting for the patient's age",
+        "Explains to parents how to care for their child and when to seek help"
+      ],
+      skills: ["Patience and the ability to connect with children", "Attention to subtle symptoms", "Calm, clear communication with worried parents", "Solid knowledge of age-related physiology", "Resilience under stress"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["A specialty in steady demand at every outpatient clinic", "A tangible result — children's health and well-being"],
+      cons: ["Long and intensive training, as for any doctor", "Emotionally hard to work with seriously ill children and their families"],
+      workplaces: [
+        "Children's outpatient clinics and hospitals",
+        "Maternity hospitals (newborn care)",
+        "Private pediatric clinics",
+        "Kindergartens and schools (medical office)",
+        "International maternal and child health programs"
+      ],
+    },
+    "nurse": {
+      name: "Nurse",
+      tagline: "Cares for patients and assists the doctor",
+      summary: "Carries out the doctor's orders, cares for patients and is often the first to notice when someone's condition gets worse — the backbone of any hospital or clinic.",
+      whatTheyDo: [
+        "Gives injections, sets up IV drips, changes dressings and performs other procedures ordered by the doctor",
+        "Measures blood pressure, temperature and other vital signs, and keeps watch over the patient",
+        "Prepares patients for examinations and surgery",
+        "Keeps medical records and reports any change in a patient's condition to the doctor"
+      ],
+      skills: ["Care and precision in procedures", "Empathy and patience in caring for patients", "Physical stamina (shifts on your feet)", "Staying calm in an emergency", "Responsibility and attention to detail"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["One of the most widely needed medical professions", "Taught at college — a shorter path into medicine than a university degree"],
+      cons: ["Shift work, including nights and holidays", "Physically and emotionally demanding work with sick people"],
+      workplaces: [
+        "Hospitals and outpatient clinics (any department)",
+        "Maternity hospitals",
+        "Private clinics and medical centers",
+        "Ambulance service",
+        "Nursing homes and hospices"
+      ],
+    },
+    "midwife": {
+      name: "Midwife",
+      tagline: "Supports pregnancy and delivers babies",
+      summary: "Monitors pregnancy, delivers babies and looks after the mother and newborn in the first days after birth.",
+      whatTheyDo: [
+        "Monitors the course of pregnancy and refers women for the necessary examinations",
+        "Delivers babies in normal births and assists the doctor in complicated ones",
+        "Examines the newborn right after birth",
+        "Advises women on caring for themselves and their baby after childbirth"
+      ],
+      skills: ["Calm and composure under stress", "Quick reactions when complications arise", "Empathy for the mother and her family", "Physical stamina (long labors, night shifts)", "Responsibility for two lives at once"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Steady demand — babies are born every day in every region", "A special, emotionally meaningful role in a family's life"],
+      cons: ["Irregular hours — births don't fit around shifts", "High responsibility and the risk of complications that must be spotted in time"],
+      workplaces: [
+        "Maternity hospitals and hospital maternity wards",
+        "Women's health clinics",
+        "Rural health centers (often the only specialist on site)",
+        "Private perinatal centers",
+        "Maternal health programs of international organizations"
+      ],
+    },
+    "dental-technician": {
+      name: "Dental Technician / Dental Hygienist",
+      tagline: "Makes dentures and looks after oral health",
+      summary: "Makes crowns, dentures and other dental appliances in a lab, or provides preventive oral care for patients.",
+      whatTheyDo: [
+        "Takes impressions and uses them to make crowns, bridges and dentures",
+        "Chooses materials and shades to match the natural look of the patient's teeth",
+        "Performs professional teeth cleaning and helps prevent gum disease",
+        "Works alongside the dentist, fitting and adjusting finished appliances"
+      ],
+      skills: ["Fine motor skills and care when working with materials", "An artistic eye for shape and color", "Knowledge of dental and jaw anatomy", "Patience for painstaking lab work", "Teamwork with the dentist"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["An in-demand specialty taught at colleges", "You can combine lab work with seeing patients"],
+      cons: ["Long hours sitting and working with tiny details", "You have to keep up with new dental materials and technologies"],
+      workplaces: [
+        "Dental clinics and practices",
+        "Dental laboratories",
+        "Public dental clinics",
+        "Private dental lab practice"
+      ],
+    },
+    "medical-lab-technician": {
+      name: "Medical Laboratory Technician",
+      tagline: "Runs the tests the doctor relies on",
+      summary: "Carries out laboratory and diagnostic tests — blood tests, ultrasounds, ECGs — that the doctor uses to make a diagnosis.",
+      whatTheyDo: [
+        "Collects and prepares samples (blood, urine and others) for testing",
+        "Works with laboratory equipment and reagents",
+        "Performs and interprets basic diagnostic tests",
+        "Gives the doctor accurate, timely results"
+      ],
+      skills: ["Accuracy and care when working with equipment", "Following protocols and safety rules", "Attention to detail — the right diagnosis depends on it", "Basic computer skills for recording results", "Responsibility"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Needed in every hospital, clinic and private lab", "More predictable hours than a doctor or nurse"],
+      cons: ["Routine, often repetitive work", "Handling biological samples requires strict safety practices"],
+      workplaces: [
+        "Hospital and clinic laboratories",
+        "Private diagnostic centers",
+        "Sanitary and epidemiological stations",
+        "Medical research institutes"
+      ],
+    },
+    "public-health-physician": {
+      name: "Public Health Physician",
+      tagline: "Protects the health of the population and prevents outbreaks",
+      summary: "Enforces sanitary standards, investigates infection outbreaks and works to keep people from getting sick in the first place, rather than only treating those who already are.",
+      whatTheyDo: [
+        "Checks compliance with sanitary standards in schools, canteens and workplaces",
+        "Investigates cases and outbreaks of infectious diseases",
+        "Organizes prevention and vaccination campaigns",
+        "Prepares public health recommendations for the authorities"
+      ],
+      skills: ["Systems thinking and seeing the big picture across a whole region", "Knowledge of epidemiology and hygiene", "Persistence when dealing with inspected organizations", "Analyzing disease statistics", "Responsibility for the health of large numbers of people"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Work with a real impact on the health of whole communities, not just one patient", "More predictable hours than a hospital doctor"],
+      cons: ["Less direct patient contact, more paperwork and field inspections", "You must be ready to make unpopular decisions (closing businesses, quarantines)"],
+      workplaces: [
+        "Sanitary and epidemiological stations",
+        "The Ministry of Health and its regional departments",
+        "Public health centers",
+        "International health organizations (WHO, UNICEF)"
+      ],
+    },
+    "medical-psychologist": {
+      name: "Medical Psychologist",
+      tagline: "Helps patients cope with illness psychologically",
+      summary: "Works with patients' psychological state — anxiety, stress, adjusting to a diagnosis — alongside the attending doctor.",
+      whatTheyDo: [
+        "Carries out psychological assessments of patients in a hospital or clinic",
+        "Helps patients cope with stress, anxiety and accepting a diagnosis",
+        "Works with the families of seriously and chronically ill patients",
+        "Advises doctors on a patient's psychological needs"
+      ],
+      skills: ["Empathy and the ability to listen", "Knowledge of medicine as well as psychology", "Emotional resilience when working with difficult cases", "Building trust quickly", "Ethics and confidentiality"],
+      schoolSubjects: ["Biology", "Social studies"],
+      pros: ["Growing demand as psychological support becomes the norm", "Work at the meeting point of medicine and psychology — a rare and valuable combination"],
+      cons: ["Emotionally heavy work with seriously ill patients and their families", "Employers are still less familiar with this profession than with traditional medical specialties"],
+      workplaces: [
+        "Hospitals (oncology, cardiology and other departments treating serious illness)",
+        "Rehabilitation and medical-social centers",
+        "Private medical and psychological centers",
+        "Hospices and palliative care"
+      ],
+    },
+    "physiotherapist": {
+      name: "Physiotherapist",
+      tagline: "Restores mobility and relieves pain without surgery",
+      summary: "Uses exercise, massage and physical therapy procedures to restore mobility after an injury, surgery or illness.",
+      whatTheyDo: [
+        "Assesses what exactly limits a patient's movement and draws up a rehabilitation plan",
+        "Leads therapeutic exercise sessions and gives massage",
+        "Applies physiotherapy procedures (electrotherapy, heat therapy, hydrotherapy)",
+        "Tracks progress and adjusts the recovery program"
+      ],
+      skills: ["Knowledge of anatomy and the biomechanics of movement", "Physical stamina", "Patience — results often take time", "Motivating patients to keep up their exercises", "Care not to cause harm"],
+      schoolSubjects: ["Biology", "Physical education"],
+      pros: ["You literally help people get back on their feet — a visible result", "In demand not only in medicine but also in sports"],
+      cons: ["Physically demanding work (supporting and assisting patients)", "Recovery takes many sessions — patience is needed on both sides"],
+      workplaces: [
+        "Rehabilitation centers and hospital departments",
+        "Sanatoriums",
+        "Sports clubs and teams",
+        "Private physiotherapy practices"
+      ],
+    },
+    "biomedical-scientist": {
+      name: "Biomedical Scientist",
+      tagline: "Studies the body's processes at the cellular and molecular level",
+      summary: "Researches the biochemical and biophysical processes in the body — the foundation for developing new methods of diagnosis and treatment.",
+      whatTheyDo: [
+        "Carries out laboratory research on biological samples",
+        "Studies the biochemical processes behind diseases",
+        "Helps develop and test diagnostic methods",
+        "Works at the meeting point of medicine, biology and chemistry on research projects"
+      ],
+      skills: ["A strong grounding in chemistry and biology", "Care and precision in lab work", "Analytical, research-minded thinking", "Working with scientific equipment", "English for reading scientific literature"],
+      schoolSubjects: ["Biology", "Chemistry"],
+      pros: ["Work at the cutting edge of medical science", "Opens the way to a research career and international research projects"],
+      cons: ["More lab and research work than direct patient care", "You have to keep up with new research in a fast-moving field"],
+      workplaces: [
+        "Medical research institutes",
+        "University laboratories",
+        "Hospital diagnostic and biochemistry laboratories",
+        "Pharmaceutical companies (research departments)"
+      ],
+    },
     "paramedic": {
       name: "Paramedic",
       tagline: "Gives first and emergency aid where there is no doctor",
@@ -987,6 +1179,27 @@ const en: ProfessionContentBundle = {
         "International irrigation projects (World Bank, Asian Development Bank)",
         "Farmer water-user associations",
         "Water resources design institutes"
+      ],
+    },
+    "forester": {
+      name: "Forester",
+      tagline: "Looks after forests and makes cities greener",
+      summary: "Grows, protects and sustainably manages forests — from mountain woodlands to city parks.",
+      whatTheyDo: [
+        "Plans tree planting and the care of forest stands",
+        "Monitors tree health, pests and forest diseases",
+        "Organizes protection of forests from fires and illegal logging",
+        "Designs landscaping for parks and urban spaces"
+      ],
+      skills: ["Knowledge of plant biology and forest ecosystems", "Observation skills and a love of fieldwork", "Organizational skills for protecting a territory", "Understanding of ecological balance", "Willingness to work in mountainous and remote areas"],
+      schoolSubjects: ["Biology", "Geography"],
+      pros: ["An important role in fighting soil erosion and climate change in a mountainous country", "Varied work — from the mountains to city parks"],
+      cons: ["A lot of fieldwork in remote and mountainous districts", "Dependence on weather and season"],
+      workplaces: [
+        "The Committee for Environmental Protection and the forestry service",
+        "Forestry enterprises and nature reserves",
+        "City landscaping services",
+        "International reforestation and climate change projects"
       ],
     },
     "soil-scientist": {

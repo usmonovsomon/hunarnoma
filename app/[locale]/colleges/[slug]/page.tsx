@@ -5,7 +5,7 @@ import { colleges, getCollege, specialtiesAtCollege, type CollegeOffering } from
 import { getClusterMeta } from "@/lib/i18n/content";
 import { CLUSTER_IDS } from "@/lib/ntc/content";
 import { asLocale, fmt, fmtNum, fmtSomoni, fmtSomoniRange, getDict, href, plural, type Dict, type Locale } from "@/lib/i18n";
-import { formLabel, languageList, parseLanguages, regionName, uniTypeLabel } from "@/lib/i18n/data";
+import { formLabel, languageList, parseLanguages, regionName, specialtyName, uniTypeLabel, collegeAddress, collegeLocation, collegeName } from "@/lib/i18n/data";
 import { Stat, CollegeSourceNote, ClusterDot, PhoneLinks } from "@/components/ntc";
 
 export function generateStaticParams() {
@@ -18,8 +18,11 @@ export function generateMetadata({ params }: { params: { locale: string; slug: s
   const c = getCollege(params.slug);
   if (!c) return { title: d.collegePage.fallbackTitle };
   return {
-    title: c.name,
-    description: fmt(d.collegePage.metaDescription, { name: c.name, location: c.location }),
+    title: collegeName(locale, c.id, c.name),
+    description: fmt(d.collegePage.metaDescription, {
+      name: collegeName(locale, c.id, c.name),
+      location: collegeLocation(locale, c.id, c.location),
+    }),
   };
 }
 
@@ -50,12 +53,13 @@ export default function CollegePage({ params }: { params: { locale: string; slug
     .filter((g) => g.items.length);
 
   const languages = parseLanguages(c.languages);
+  const name = collegeName(locale, c.id, c.name);
 
   return (
     <div className="container-page py-8">
       <nav className="mb-4 flex items-center gap-1.5 text-sm text-ink-muted">
         <Link href={href(locale, "/colleges")} className="hover:text-brand-600">{d.nav.colleges}</Link>
-        <span>/</span><span className="text-ink-soft">{c.name}</span>
+        <span>/</span><span className="text-ink-soft">{name}</span>
       </nav>
 
       <header className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-inset ring-slate-200 sm:p-8">
@@ -64,9 +68,9 @@ export default function CollegePage({ params }: { params: { locale: string; slug
             {uniTypeLabel(d, c.type)}
           </span>
         </div>
-        <h1 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">{c.name}</h1>
+        <h1 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">{name}</h1>
         <div className="mt-3 space-y-1 text-sm text-ink-soft">
-          <div>📍 {c.address}{c.region ? ` · ${regionName(d, c.region)}` : ""}</div>
+          <div>📍 {collegeAddress(locale, c.id, c.address)}{c.region ? ` · ${regionName(d, c.region)}` : ""}</div>
           {c.phone && <PhoneLinks locale={locale} phone={c.phone} />}
         </div>
         {languages.length > 0 && (
@@ -106,7 +110,7 @@ export default function CollegePage({ params }: { params: { locale: string; slug
                       return (
                         <li key={specialty.code} className="px-4 py-3">
                           <div className="flex items-start justify-between gap-3">
-                            <span className="font-semibold leading-snug text-ink">{specialty.name}</span>
+                            <span className="font-semibold leading-snug text-ink">{specialtyName(locale, specialty.name)}</span>
                             <span className="shrink-0 rounded-full bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-700">
                               {seatSum(offerings)} {d.labels.seatsShort}
                             </span>
@@ -139,7 +143,7 @@ export default function CollegePage({ params }: { params: { locale: string; slug
                           const langs = parseLanguages(offerings.map((o) => o.language).join(", "));
                           return (
                             <tr key={specialty.code} className="border-b border-slate-50 last:border-0 hover:bg-slate-50/60">
-                              <td className="px-4 py-2.5 font-medium text-ink">{specialty.name}</td>
+                              <td className="px-4 py-2.5 font-medium text-ink">{specialtyName(locale, specialty.name)}</td>
                               <td className="px-3 py-2.5 text-ink-soft">{forms.map((f) => formLabel(d, f)).join(", ")}</td>
                               <td className="px-3 py-2.5 text-ink-soft">{languageList(d, langs)}</td>
                               <td className="px-3 py-2.5 text-ink-soft">{tuitionOf(locale, d, offerings)}</td>

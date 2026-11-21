@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { colleges, collegeTotals, COLLEGE_REGION_ORDER } from "@/lib/colleges";
 import { asLocale, fmt, fmtNum, getDict, LOCALES } from "@/lib/i18n";
-import { regionName } from "@/lib/i18n/data";
+import { collegeLocation, collegeName, regionName } from "@/lib/i18n/data";
 import CollegeCatalog, { type RegionOption, type CollegeItem } from "@/components/CollegeCatalog";
 import { CollegeSourceNote } from "@/components/ntc";
 
@@ -20,8 +20,8 @@ export default function CollegesPage({ params }: { params: { locale: string } })
 
   const items: CollegeItem[] = colleges.map((c) => ({
     slug: c.slug,
-    name: c.name,
-    location: c.location,
+    name: collegeName(locale, c.id, c.name),
+    location: collegeLocation(locale, c.id, c.location),
     region: c.region,
     type: c.type,
     specialtyCount: c.specialtyCount,

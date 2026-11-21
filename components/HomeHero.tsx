@@ -69,6 +69,16 @@ export default function HomeHero({
 
       <div className="container-page grid grid-cols-1 items-center gap-12 pt-14 sm:pt-20 lg:min-h-[680px] lg:grid-cols-[1fr_1.1fr] lg:gap-6 lg:pt-16">
         <div className="relative z-10 min-w-0 lg:pb-16 lg:pr-6">
+          <Link
+            href={href(locale, "/about")}
+            className="group mb-6 inline-flex max-w-full items-center gap-2 rounded-full bg-white/75 py-1.5 pl-1.5 pr-3.5 text-sm font-semibold text-ink-soft shadow-sm ring-1 ring-inset ring-slate-200/80 backdrop-blur transition hover:bg-white hover:text-ink hover:ring-brand-200"
+          >
+            <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white ring-1 ring-slate-200">
+              <Image src="/logo-mark.png" alt="" width={20} height={20} className="h-4 w-4" />
+            </span>
+            <span className="truncate">{dict.home.heroAboutPill}</span>
+            <span className="shrink-0 text-brand-600 transition-transform group-hover:translate-x-0.5">→</span>
+          </Link>
           {/* The accent always gets its own line, the rest is balanced, and the trailing
               preposition ("с" / "бо" / "with") is glued to the word before it — otherwise
               the longer tj/en titles leave it stranded on a line of its own. */}

@@ -136,7 +136,7 @@ export function CollegeSpecialtyCard({ locale, s }: { locale: Locale; s: College
         <span className="truncate">{m?.name}</span>
       </div>
       <div className="mt-1.5 line-clamp-2 font-bold leading-snug text-ink group-hover:text-brand-700">
-        {s.name}
+        {specialtyName(locale, s.name)}
       </div>
       <div className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-3 text-xs text-ink-soft">
         <span>🏫 {s.stats.colleges} {d.labels.colleges}</span>
