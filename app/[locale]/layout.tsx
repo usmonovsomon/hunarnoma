@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Manrope } from "next/font/google";
+import { Onest } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
@@ -12,12 +12,13 @@ import { LOCALES, LOCALE_META, asLocale, getDict, href, isLocale, type Locale } 
 
 const SITE_URL = "https://hunarnoma.tj";
 
-// Self-hosted at build time, so no request to Google Fonts at runtime.
-const manrope = Manrope({
+// Self-hosted at build time, so no request to Google Fonts at runtime. Onest because it
+// draws the Tajik letters (ӣ ӯ қ ғ ҳ ҷ) itself — Manrope lacked them and fell back mid-word.
+const onest = Onest({
   subsets: ["latin", "cyrillic", "cyrillic-ext"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-manrope",
+  variable: "--font-onest",
 });
 
 export function generateStaticParams() {
@@ -73,7 +74,7 @@ export default function LocaleLayout({
   const locale: Locale = params.locale;
 
   return (
-    <html lang={LOCALE_META[locale].htmlLang} className={manrope.variable}>
+    <html lang={LOCALE_META[locale].htmlLang} className={onest.variable}>
       <body>
         <Nav locale={locale} />
         <main>{children}</main>

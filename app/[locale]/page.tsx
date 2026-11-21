@@ -83,30 +83,52 @@ export default function Home({ params }: { params: { locale: string } }) {
             ))}
           </div>
 
-          <section className="container-page py-8">
+          {/* Intro to the NTC-sourced clusters below — marks them as official data */}
+          <div className="pt-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
+              <h2 className="font-bold text-ink">{d.home.officialDataTitle}</h2>
+              <p className="mt-1 text-sm text-ink-soft">{d.home.officialDataLead}</p>
+            </div>
+          </div>
+
+          {/* Clusters */}
+          <section id="clusters" className="scroll-mt-20 py-8">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-extrabold tracking-tight">{d.home.professionsTitle}</h2>
-                <p className="mt-1 text-ink-soft">{d.home.professionsLead}</p>
+                <h2 className="text-2xl font-extrabold tracking-tight">{d.home.clustersTitle}</h2>
+                <p className="mt-1 text-ink-soft">{d.home.clustersLead}</p>
               </div>
-              <Link href={href(locale, "/professions")} className="text-sm font-semibold text-brand-600 hover:underline">
-                {d.home.professionsCta}
-              </Link>
             </div>
-            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {homeProfessions.map(({ p, text }) => (
-                  <ProfessionCard
-                      key={p.id}
-                      locale={locale}
-                      dict={d}
-                      slug={p.slug}
-                      fieldId={p.fieldId}
-                      name={text.name}
-                      tagline={text.tagline}
-                      specialtyCount={specialtiesForProfession(p).length}
-                      international={p.international}
-                  />
-              ))}
+            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {clusterSummaries.map((c) => {
+                const m = clusterMeta[c.id];
+                const col = CLUSTER_COLOR[m.color];
+                return (
+                  <Link key={c.id} href={href(locale, `/clusters/${c.id}`)} className={`card group p-5 ring-1 ring-inset ${col.ring}`}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-3xl">{m.emoji}</span>
+                      <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${col.chip}`}>
+                        {fmt(d.home.clusterBadge, { n: c.id })}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-bold group-hover:text-brand-700">{m.name}</h3>
+                    <p className="mt-1 text-sm text-ink-soft">{m.tagline}</p>
+                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-muted">
+                      <span><b className="text-ink-soft">{c.specialtyCount}</b> {d.labels.specialties}</span>
+                      <span><b className="text-ink-soft">{fmtNum(locale, c.totalSeats)}</b> {d.labels.seatsShort}</span>
+                    </div>
+                  </Link>
+                );
+              })}
+              <Link href={href(locale, "/specialties")} className="card group grid place-items-center p-5 text-center">
+                <div>
+                  <div className="text-3xl">🔎</div>
+                  <h3 className="mt-3 text-lg font-bold group-hover:text-brand-700">{d.home.allSpecialtiesTitle}</h3>
+                  <p className="mt-1 text-sm text-ink-soft">
+                    {fmt(d.home.allSpecialtiesText, { count: fmtNum(locale, totals.specialties) })}
+                  </p>
+                </div>
+              </Link>
             </div>
           </section>
 
@@ -124,58 +146,34 @@ export default function Home({ params }: { params: { locale: string } }) {
         </div>
       </section>
 
-      {/* Professions — the main entry point of the product */}
-
-
       {/* How many professions live in each field */}
       <ProfessionsByFieldChart locale={locale} />
 
-      {/* Transition into the NTC-sourced part of the site — professions come first, this is the supporting detail */}
-      <div className="container-page pt-8">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-          <h2 className="font-bold text-ink">{d.home.officialDataTitle}</h2>
-          <p className="mt-1 text-sm text-ink-soft">{d.home.officialDataLead}</p>
-        </div>
-      </div>
-
-      {/* Clusters */}
-      <section id="clusters" className="container-page scroll-mt-20 py-8">
+      {/* Professions */}
+      <section className="container-page py-8">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-extrabold tracking-tight">{d.home.clustersTitle}</h2>
-            <p className="mt-1 text-ink-soft">{d.home.clustersLead}</p>
+            <h2 className="text-2xl font-extrabold tracking-tight">{d.home.professionsTitle}</h2>
+            <p className="mt-1 text-ink-soft">{d.home.professionsLead}</p>
           </div>
-        </div>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {clusterSummaries.map((c) => {
-            const m = clusterMeta[c.id];
-            const col = CLUSTER_COLOR[m.color];
-            return (
-              <Link key={c.id} href={href(locale, `/clusters/${c.id}`)} className={`card group p-5 ring-1 ring-inset ${col.ring}`}>
-                <div className="flex items-center justify-between">
-                  <span className="text-3xl">{m.emoji}</span>
-                  <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${col.chip}`}>
-                    {fmt(d.home.clusterBadge, { n: c.id })}
-                  </span>
-                </div>
-                <h3 className="mt-3 text-lg font-bold group-hover:text-brand-700">{m.name}</h3>
-                <p className="mt-1 text-sm text-ink-soft">{m.tagline}</p>
-                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-muted">
-                  <span><b className="text-ink-soft">{c.specialtyCount}</b> {d.labels.specialties}</span>
-                  <span><b className="text-ink-soft">{fmtNum(locale, c.totalSeats)}</b> {d.labels.seatsShort}</span>
-                </div>
-              </Link>
-            );
-          })}
-          <Link href={href(locale, "/specialties")} className="card group grid place-items-center p-5 text-center">
-            <div>
-              <div className="text-3xl">🔎</div>
-              <h3 className="mt-3 text-lg font-bold group-hover:text-brand-700">{d.home.allSpecialtiesTitle}</h3>
-              <p className="mt-1 text-sm text-ink-soft">
-                {fmt(d.home.allSpecialtiesText, { count: fmtNum(locale, totals.specialties) })}
-              </p>
-            </div>
+          <Link href={href(locale, "/professions")} className="text-sm font-semibold text-brand-600 hover:underline">
+            {d.home.professionsCta}
           </Link>
+        </div>
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {homeProfessions.map(({ p, text }) => (
+              <ProfessionCard
+                  key={p.id}
+                  locale={locale}
+                  dict={d}
+                  slug={p.slug}
+                  fieldId={p.fieldId}
+                  name={text.name}
+                  tagline={text.tagline}
+                  specialtyCount={specialtiesForProfession(p).length}
+                  international={p.international}
+              />
+          ))}
         </div>
       </section>
 
