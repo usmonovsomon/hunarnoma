@@ -144,8 +144,26 @@ export default function SpecialtyPage({ params }: { params: { locale: string; co
                     {offs.reduce((n, o) => n + o.seats, 0)} {d.labels.seatsShort}
                   </span>
                 </div>
-                <div className="mt-3 overflow-x-auto">
-                  <table className="w-full min-w-[420px] text-sm">
+                <ul className="mt-3 space-y-1.5 sm:hidden">
+                  {offs.map((o, i) => (
+                    <li key={i} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-3 py-2 text-sm">
+                      <div className="min-w-0">
+                        <div className="font-medium text-ink">{formLabel(d, o.form)}</div>
+                        <div className="truncate text-xs text-ink-soft">{languageList(d, o.language)}</div>
+                      </div>
+                      <div className="shrink-0 text-right">
+                        <div className="text-xs">
+                          {o.paid
+                            ? <span className="text-ink-soft">{o.tuition ? fmtSomoni(locale, o.tuition, d) : d.labels.paid}</span>
+                            : <span className="font-semibold text-green-700">{d.labels.budget}</span>}
+                        </div>
+                        <div className="font-bold text-ink">{o.seats} <span className="text-xs font-normal text-ink-muted">{d.labels.seatsShort}</span></div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-3 hidden sm:block">
+                  <table className="w-full text-sm">
                     <thead>
                       <tr className="text-left text-xs text-ink-muted">
                         <th className="py-1 pr-3 font-medium">{d.specialtyPage.thForm}</th>

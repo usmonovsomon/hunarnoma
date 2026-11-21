@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import MobileMenu from "@/components/MobileMenu";
 import { getDict, href, type Locale } from "@/lib/i18n";
 
 export default function Nav({ locale }: { locale: Locale }) {
@@ -36,15 +37,20 @@ export default function Nav({ locale }: { locale: Locale }) {
           <Link href={href(locale, "/career-test")} className="btn-primary hidden sm:inline-flex">
             {d.nav.takeTest}
           </Link>
+          <MobileMenu
+            links={links}
+            ctaHref={href(locale, "/career-test")}
+            labels={{
+              menu: d.nav.menu,
+              close: d.nav.close,
+              takeTest: d.nav.takeTest,
+              installApp: d.nav.installApp,
+              installAppHint: d.nav.installAppHint,
+              installIosHint: d.nav.installIosHint,
+            }}
+          />
         </div>
       </div>
-      <nav className="container-page flex gap-1 overflow-x-auto pb-2 lg:hidden">
-        {links.map((l) => (
-          <Link key={l.href} href={l.href} className="whitespace-nowrap rounded-lg px-3 py-1.5 text-sm text-ink-soft hover:bg-slate-100">
-            {l.label}
-          </Link>
-        ))}
-      </nav>
     </header>
   );
 }

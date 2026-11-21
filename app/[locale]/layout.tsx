@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -7,6 +7,7 @@ import "../globals.css";
 import "leaflet/dist/leaflet.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ServiceWorker from "@/components/ServiceWorker";
 import { LOCALES, LOCALE_META, asLocale, getDict, href, isLocale, type Locale } from "@/lib/i18n";
 
 const SITE_URL = "https://hunarnoma.tj";
@@ -45,8 +46,20 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
       type: "website",
       url: href(locale),
     },
+    appleWebApp: {
+      capable: true,
+      title: "HunarNoma",
+      statusBarStyle: "default",
+    },
   };
 }
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#167a5e",
+};
 
 export default function LocaleLayout({
   children,
@@ -66,6 +79,7 @@ export default function LocaleLayout({
         <Footer locale={locale} />
         <Analytics />
         <SpeedInsights />
+        <ServiceWorker />
       </body>
     </html>
   );

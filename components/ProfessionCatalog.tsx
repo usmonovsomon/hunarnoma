@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { ProfessionFieldColor, ProfessionFieldId } from "@/lib/professions/base";
 import { collator, fmtNum, type Dict, type Locale } from "@/lib/i18n";
 import { ProfessionCard } from "@/components/professions";
+import ChipFilter from "@/components/ChipFilter";
 
 export interface ProfessionItem {
   id: string;
@@ -66,16 +67,15 @@ export default function ProfessionCatalog({
             className="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-9 pr-3 text-sm outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
           />
         </div>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <button onClick={() => setFieldId("")} className={chip(fieldId === "")}>
-            {dict.professionsPage.allFields}
-          </button>
-          {fields.map((f) => (
-            <button key={f.id} onClick={() => setFieldId(f.id)} className={chip(fieldId === f.id)}>
-              {f.emoji} {f.name}
-            </button>
-          ))}
-        </div>
+        <ChipFilter<ProfessionFieldId | "">
+          value={fieldId}
+          onChange={setFieldId}
+          allValue=""
+          allLabel={dict.professionsPage.allFields}
+          options={fields.map((f) => ({ value: f.id, label: f.name, emoji: f.emoji }))}
+          title={dict.professionsPage.fieldFilter}
+          closeLabel={dict.nav.close}
+        />
       </div>
 
       <p className="mt-4 text-sm text-ink-muted">
@@ -104,10 +104,4 @@ export default function ProfessionCatalog({
       )}
     </div>
   );
-}
-
-function chip(active: boolean) {
-  return `rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-    active ? "bg-brand-600 text-white shadow-sm" : "bg-white text-ink-soft ring-1 ring-inset ring-slate-200 hover:bg-slate-100"
-  }`;
 }
