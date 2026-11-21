@@ -19,6 +19,7 @@ export default function Footer({ locale }: { locale: Locale }) {
             <li><Link href={href(locale, "/colleges")} className="hover:text-brand-600">{d.nav.colleges}</Link></li>
             <li><Link href={href(locale, "/medicine")} className="hover:text-brand-600">{d.medicinePage.title}</Link></li>
             <li><Link href={`${href(locale)}#clusters`} className="hover:text-brand-600">{d.nav.clusters}</Link></li>
+            <li><Link href={href(locale, "/about")} className="hover:text-brand-600">{d.nav.about}</Link></li>
             <li><Link href={href(locale, "/career-test")} className="hover:text-brand-600">{d.nav.careerTest}</Link></li>
           </ul>
         </div>

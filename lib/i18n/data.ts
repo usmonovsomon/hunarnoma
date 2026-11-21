@@ -11,6 +11,8 @@ import specEn from "@/data/i18n/specialties.en.json";
 import uniRu from "@/data/i18n/universities.ru.json";
 import uniTj from "@/data/i18n/universities.tj.json";
 import uniEn from "@/data/i18n/universities.en.json";
+import colTj from "@/data/i18n/colleges.tj.json";
+import colEn from "@/data/i18n/colleges.en.json";
 
 type NameMap = Record<string, string>;
 type UniMap = Record<string, { name?: string; shortName?: string } | string>;
@@ -43,6 +45,19 @@ export function universityName(locale: Locale, id: string, ruName: string): stri
 export function universityShortName(locale: Locale, id: string, ruShortName: string): string {
   return uniEntry(locale, id)?.shortName ?? ruShortName;
 }
+
+type CollegeMap = Record<string, { name?: string; location?: string; address?: string }>;
+
+const COLLEGES: Partial<Record<Locale, CollegeMap>> = {
+  tj: colTj as CollegeMap,
+  en: colEn as CollegeMap,
+};
+
+export const collegeName = (locale: Locale, id: string, ruName: string): string => COLLEGES[locale]?.[id]?.name ?? ruName;
+export const collegeLocation = (locale: Locale, id: string, ruLocation: string): string =>
+  COLLEGES[locale]?.[id]?.location ?? ruLocation;
+export const collegeAddress = (locale: Locale, id: string, ruAddress: string): string =>
+  COLLEGES[locale]?.[id]?.address ?? ruAddress;
 
 // --- enumerable value sets -------------------------------------------------
 export const formLabel = (d: Dict, form: string): string => d.forms[form] ?? form;

@@ -46,6 +46,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
       type: "website",
       url: href(locale),
     },
+    manifest: `/${locale}/manifest.webmanifest`,
     appleWebApp: {
       capable: true,
       title: "HunarNoma",

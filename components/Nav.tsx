@@ -38,7 +38,7 @@ export default function Nav({ locale }: { locale: Locale }) {
             {d.nav.takeTest}
           </Link>
           <MobileMenu
-            links={links}
+            links={[...links, { href: href(locale, "/about"), label: d.nav.about }]}
             ctaHref={href(locale, "/career-test")}
             labels={{
               menu: d.nav.menu,
