@@ -50,7 +50,18 @@ export default function Home({ params }: { params: { locale: string } }) {
         locale={locale}
         dict={d}
         subtitle={MOTTO[locale]}
-        universitiesCount={totals.universities}
+        professionsCount={PROFESSIONS.length}
+        featured={
+          homeProfessions[0]
+            ? {
+                fieldId: homeProfessions[0].p.fieldId,
+                name: homeProfessions[0].text.name,
+                tagline: homeProfessions[0].text.tagline,
+                whatTheyDo: homeProfessions[0].text.whatTheyDo,
+                schoolSubjects: homeProfessions[0].text.schoolSubjects,
+              }
+            : null
+        }
         professions={homeProfessions.map(({ p, text }) => ({
           slug: p.slug,
           fieldId: p.fieldId,
