@@ -40,7 +40,9 @@ jobs:
           fi
 
       - name: Pull Vercel environment
-        run: vercel pull --yes --environment=$VERCEL_ENV --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel pull --yes --environment=$VERCEL_ENV --token=${{ secrets.VERCEL_TOKEN }}
+          cat .vercel/project.json
 
       - name: Build
         run: vercel build $PROD_FLAG --token=${{ secrets.VERCEL_TOKEN }}
