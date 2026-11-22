@@ -164,7 +164,7 @@ const en: Dict = {
     metaDescription: "HunarNoma is a non-profit platform that helps young people in Tajikistan find the right career and the right place to study.",
     paragraphs: [
       "Hunarnoma was started by two brothers, Khurshed and Somon Usmonov.",
-      "We grew up in Tajikistan and know how hard it can be to decide what to study or which career to follow. Many young people make that choice without much information, and we wanted to change that.",
+      "\"We grew up in Tajikistan and know how hard it can be to decide what to study or which career to follow. Many young people make that choice without much information, and we wanted to change that.\"",
       "Hunarnoma is a non-profit platform built to help young Tajiks find the right path. But it’s not just an encyclopedia of colleges and professions. It’s an interactive platform that helps you figure out which career fits you, which college can get you there, and what jobs will look like in the future.",
       "This is just the beginning. We’re working on a mentorship program and new AI tools, and we’ll share more soon.",
       "Thank you for being here. We hope Hunarnoma helps you find your way.",
