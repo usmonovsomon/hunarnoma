@@ -19,9 +19,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -47,5 +47,5 @@ jobs:
 
       - name: Deploy
         run: |
-          url=$(vercel deploy --prebuilt $PROD_FLAG --token=${{ secrets.VERCEL_TOKEN }})
+          url=$(vercel deploy --prebuilt --archive=tgz $PROD_FLAG --token=${{ secrets.VERCEL_TOKEN }})
           echo "Deployed: $url" >> "$GITHUB_STEP_SUMMARY"
